@@ -3,7 +3,7 @@
    echo  '<header class="header">
             <a href="#" class="logo">
                 <!-- Add the class icon to your logo image or logo icon to add the margining -->
-                Online Grading System
+                Twinkle Toes Grading System
             </a>
             <!-- Header Navbar: style can be found in header.less -->
             <nav class="navbar navbar-static-top" role="navigation">

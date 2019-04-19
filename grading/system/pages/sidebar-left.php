@@ -73,7 +73,7 @@
                             </li>
                             <li>
                                 <a href="../teacheradvisory/teacheradvisory.php">
-                                    <i class="fa fa-user"></i> <span>Teacher Advisory</span>
+                                    <i class="fa fa-user"></i> <span>Advisory Class</span>
                                 </a>
                             </li>
                             <li>
@@ -88,7 +88,7 @@
                             </li>
                             <li>
                                 <a href="../backup/backup.php">
-                                    <i class="fa fa-database"></i> <span>Backup/Restore Database</span>
+                                    <i class="fa fa-database"></i> <span>Backup/Restore Database doesnotwork</span>
                                 </a>
                             </li>';
                         }

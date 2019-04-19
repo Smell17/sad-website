@@ -5,7 +5,7 @@ session_start();
 ?>
     <head>
         <meta charset="UTF-8">
-        <title>AdminLTE | Dashboard</title>
+        <title>Twinkle Toes Grading System</title>
         <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
         <!-- bootstrap 3.0.2 -->
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -13,6 +13,7 @@ session_start();
         <link href="css/AdminLTE.css" rel="stylesheet" type="text/css" />
 
     </head>
+
     <body class="skin-black">
         <div class="container" style="margin-top:30px">
           <div class="col-md-4 col-md-offset-4">
@@ -28,7 +29,7 @@ session_start();
                   <label for="txt_password">Password</label>
                   <input type="password" class="form-control" style="border-radius:0px" name="txt_password" placeholder="Enter Password">
                 </div>
-                <button type="submit" class="btn btn-sm btn-primary" name="btn_login">Log in</button>
+                <button type="submit" class="btn btn-sm btn-primary" style="text-align: center" name="btn_login">Log in</button>
               </form>
             </div>
           </div>
