@@ -43,7 +43,7 @@
                                         <thead>
                                             <tr>
                                                 <th style="width: 20px !important;"><input type="checkbox" name="chk_delete[]" class="cbxMain" onchange="checkMain(this)" /></th>
-                                                <th>Class Name</th>
+                                                <th>Section Name</th>
                                                 <th>School Year</th>
                                                 <th>Year Level</th>
                                                 <th style="width: 40px !important;">Option</th>

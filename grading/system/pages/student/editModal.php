@@ -33,12 +33,32 @@
                     <input name="txt_edit_addr" id="txt_edit_addr" class="form-control input-sm" type="text" value="'.$row['address'].'" />
                 </div>
                 <div class="form-group">
-                    <label>Username: </label>
-                    <input name="txt_edit_uname" id="txt_edit_uname" class="form-control input-sm" type="text" value="'.$row['username'].'" />
+                    <label>Date of Birth: </label>
+                    <input name="txt_edit_date" id="txt_edit_date" class="form-control input-sm" type="date" value="'.$row['dateofbirth'].'" />
                 </div>
                 <div class="form-group">
-                    <label>Password: </label>
-                    <input name="txt_edit_pass" id="txt_edit_pass" class="form-control input-sm" type="password" value="'.$row['password'].'" />
+                    <label>Father Name: </label>
+                    <input name="txt_edit_fathername" id="txt_edit_fathername" class="form-control input-sm" type="text" value="'.$row['fathername'].'" />
+                </div>
+                <div class="form-group">
+                    <label>Father Contact Number: </label>
+                    <input name="txt_edit_fathercontact" id="txt_edit_fathercontact" class="form-control input-sm" type="number" value="'.$row['fathercontact'].'" />
+                </div>
+                <div class="form-group">
+                    <label>Mother Name: </label>
+                    <input name="txt_edit_mothername" id="txt_edit_mothername" class="form-control input-sm" type="text" value="'.$row['mothername'].'" />
+                </div>
+                <div class="form-group">
+                    <label>Mother Contact Number: </label>
+                    <input name="txt_edit_mothercontact" id="txt_edit_mothercontact" class="form-control input-sm" type="number" value="'.$row['mothercontact'].'" />
+                </div>
+                <div class="form-group">
+                    <label>Emergency Contact Person Name: </label>
+                    <input name="txt_edit_emergencyname" id="txt_edit_emergencyname" class="form-control input-sm" type="text" value="'.$row['emergencyname'].'" />
+                </div>
+                <div class="form-group">
+                    <label>Emergency Contact Person Number: </label>
+                    <input name="txt_edit_emergencycontact" id="txt_edit_emergencycontact" class="form-control input-sm" type="number" value="'.$row['emergencycontact'].'" />
                 </div>
             </div>
         </div>

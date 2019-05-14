@@ -86,9 +86,6 @@ session_start();
                     </div>
                 </div>
             </div>
-            <div class ="row">
-              <h1>This doesn't save yet to DB.</h1>
-            </div>
             
         </div>
         <div class="modal-footer">
@@ -141,7 +138,7 @@ session_start();
                     $_SESSION['role'] = "Student";
                     $_SESSION['userid'] = $row['id'];
                   } 
-                  header ('location: pages/grade/grade.php');
+                  header ('location: pages/grade/student.php');
                 }
              else
                 {
@@ -176,6 +173,7 @@ session_start();
     else{
       $_SESSION['duplicate'] = 1;
             header ("location: ".$_SERVER['REQUEST_URI']);
+            echo 'registration error';
     }
   }
 ?>

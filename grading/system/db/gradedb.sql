@@ -1,11 +1,4 @@
--- phpMyAdmin SQL Dump
--- version 4.0.9
--- http://www.phpmyadmin.net
---
--- Host: 127.0.0.1
--- Generation Time: Jan 14, 2017 at 06:41 PM
--- Server version: 5.6.14
--- PHP Version: 5.5.6
+
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -60,7 +53,19 @@ CREATE TABLE IF NOT EXISTS `tblclass` (
 --
 
 INSERT INTO `tblclass` (`id`, `classname`, `schoolyearid`, `yearlevelid`) VALUES
-(3, 'class 1', 24, 4);
+(1, 'Honesty', 1, 1),
+(2, 'Hope', 1, 2),
+(3, 'Loyalty', 1, 3),
+(4, 'Faith', 1, 4),
+(5, 'Patience', 1, 5),
+(6, 'Courage', 1, 6),
+(7, 'Wisdom', 1, 7),
+(8, 'Diligence', 1, 8), 
+(9, 'Charity', 1, 9),
+(10, 'Perseverance', 1, 10), 
+(11, 'Peace', 1, 11),
+(12, 'Humility', 1, 12);
+
 
 -- --------------------------------------------------------
 
@@ -80,8 +85,7 @@ CREATE TABLE IF NOT EXISTS `tblschoolyear` (
 --
 
 INSERT INTO `tblschoolyear` (`id`, `schoolyear`) VALUES
-(24, '2016-2017'),
-(4, '2017-2018');
+(1, '2016-2017');
 
 -- --------------------------------------------------------
 
@@ -94,10 +98,15 @@ CREATE TABLE IF NOT EXISTS `tblstudent` (
   `lname` varchar(20) NOT NULL,
   `fname` varchar(20) NOT NULL,
   `mname` varchar(20) NOT NULL,
-  `contact` int(11) NOT NULL,
+  `contact` int(20) NOT NULL,
   `address` text NOT NULL,
-  `username` varchar(20) NOT NULL,
-  `password` varchar(20) NOT NULL,
+  `dateofbirth` date NOT NULL,
+  `fathername` varchar(50) NOT NULL,
+  `fathercontact` int(20) NOT NULL,
+  `mothername` varchar(50) NOT NULL,
+  `mothercontact` int(20) NOT NULL,
+  `emergencyname` varchar(50) NOT NULL,
+  `emergencycontact` int(20) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
@@ -105,8 +114,8 @@ CREATE TABLE IF NOT EXISTS `tblstudent` (
 -- Dumping data for table `tblstudent`
 --
 
-INSERT INTO `tblstudent` (`id`, `lname`, `fname`, `mname`, `contact`, `address`, `username`, `password`) VALUES
-(1, 'a', 'a', 'a', 1, 'a', 'stud', 'pass');
+INSERT INTO `tblstudent` (`id`, `lname`, `fname`, `mname`, `contact`, `address`, `dateofbirth`, `fathername`, `fathercontact`, `mothername`, `mothercontact`, `emergencyname`, `emergencycontact`) VALUES
+(1, 'a', 'a', 'a', 1, 'a', '1969-8-15', 'smithy','69', 'wilma', '96', 'elmer', '196');
 
 -- --------------------------------------------------------
 
@@ -249,8 +258,18 @@ CREATE TABLE IF NOT EXISTS `tblyearlevel` (
 --
 
 INSERT INTO `tblyearlevel` (`id`, `yearlevel`, `description`) VALUES
-(4, '1st', 'Section 1'),
-(5, '2nd', 'Section 2');
+(1, '1st', 'Honesty'),
+(2, '1st', 'Hope'),
+(3, '2nd', 'Loyalty'),
+(4, '2nd', 'Faith'),
+(5, '3rd', 'Patience'),
+(6, '3rd', 'Courage'),
+(7, '4th', 'Wisdom'),
+(8, '4th', 'Diligence'),
+(9, '5th', 'Charity'),
+(10, '5th', 'Perseverance'),
+(11, '6th', 'Peace'),
+(12, '6th', 'Humility');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

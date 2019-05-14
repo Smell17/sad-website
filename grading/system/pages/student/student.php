@@ -65,7 +65,6 @@
                                                     <td>'.$row['sname'].'</td>
                                                     <td>'.$row['contact'].'</td>
                                                     <td>'.$row['address'].'</td>
-                                                    <td>'.$row['username'].'</td>
                                                     <td><button class="btn btn-primary btn-sm" data-target="#editModal'.$row['id'].'" data-toggle="modal"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></td>
                                                 </tr>
                                                 ';

@@ -87,9 +87,6 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="../backup/backup.php">
-                                    <i class="fa fa-database"></i> <span>Backup/Restore Database doesnotwork</span>
-                                </a>
                             </li>';
                         }
                         elseif($_SESSION['role'] == "Teacher"){

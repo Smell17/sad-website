@@ -51,10 +51,11 @@
                             <option>3rd</option>
                             <option>4th</option>
                             <option>5th</option>
+                            <option>6th</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label>Description:</label>
+                        <label>Name:</label>
                         <input required name="txt_desc" id="txt_desc" class="form-control input-sm" type="text" placeholder="Description" />
                     </div>
                 </div>
@@ -154,12 +155,32 @@
                         <input required name="txt_addr" id="txt_addr" class="form-control input-sm" type="text" placeholder="Address" />
                     </div>
                     <div class="form-group">
-                        <label>Username:</label>
-                        <input required name="txt_uname" id="txt_uname" class="form-control input-sm" type="text" placeholder="Username" />
+                        <label>Date of Birth:</label>
+                        <input required name="txt_date" id="txt_date" class="form-control input-sm" type="date" placeholder="Date" />
                     </div>
                     <div class="form-group">
-                        <label>Password:</label>
-                        <input required name="txt_pass" id="txt_pass" class="form-control input-sm" type="password" placeholder="Password" />
+                        <label>Father's Name:</label>
+                        <input required name="txt_fathername" id="txt_fathername" class="form-control input-sm" type="text" placeholder="Name" />
+                    </div>
+                    <div class="form-group">
+                        <label>Father's Contact Number:</label>
+                        <input required name="txt_fathercontact" id="txt_fathercontact" class="form-control input-sm" type="number" placeholder="Number" />
+                    </div>
+                    <div class="form-group">
+                        <label>Mother's Name:</label>
+                        <input required name="txt_mothername" id="txt_mothername" class="form-control input-sm" type="text" placeholder="Name" />
+                    </div>
+                    <div class="form-group">
+                        <label>Mother's Contact Number:</label>
+                        <input required name="txt_mothercontact" id="txt_mothercontact" class="form-control input-sm" type="number" placeholder="Number" />
+                    </div>
+                    <div class="form-group">
+                        <label>Emergency Contact Person's Name:</label>
+                        <input required name="txt_emergencyname" id="txt_emergencyname" class="form-control input-sm" type="text" placeholder="Name" />
+                    </div>
+                    <div class="form-group">
+                        <label>Emergency Contact Person's Number:</label>
+                        <input required name="txt_emergencycontact" id="txt_emergencycontact" class="form-control input-sm" type="number" placeholder="Number" />
                     </div>
                 </div>
             </div>
@@ -190,7 +211,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="form-group">
-                        <label>Class Name:</label>
+                        <label>Section Name:</label>
                         <input required name="txt_class" id="txt_class" class="form-control input-sm" type="text" placeholder="Class Name" />
                     </div>
                     <div class="form-group">

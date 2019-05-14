@@ -73,14 +73,19 @@
 		$txt_lname = $_POST['txt_lname'];
 		$txt_contact = $_POST['txt_contact'];
 		$txt_addr = $_POST['txt_addr'];
-		$txt_uname = $_POST['txt_uname'];
-		$txt_pass = $_POST['txt_pass'];
+		$txt_date = $_POST['txt_date'];
+		$txt_fathername = $_POST['txt_fathername'];
+		$txt_fathercontact = $_POST['txt_fathercontact'];
+		$txt_mothername = $_POST['txt_mothername'];
+		$txt_mothercontact = $_POST['txt_mothercontact'];
+		$txt_emergencyname = $_POST['txt_emergencyname'];
+		$txt_emergencycontact = $_POST['txt_emergencycontact'];
 
 		$chk = mysqli_query($con,"SELECT * from tblstudent where lname = '".$txt_lname."' and fname = '".$txt_fname."' and mname = '".$txt_mname."' ");
 		$ct = mysqli_num_rows($chk);
 
 		if($ct == 0){
-			$query = mysqli_query($con,"INSERT INTO tblstudent (lname,fname,mname,contact,address,username,password) values ('".$txt_lname."','".$txt_fname."','".$txt_mname."','".$txt_contact."','".$txt_addr."','".$txt_uname."','".$txt_pass."')"); 
+			$query = mysqli_query($con,"INSERT INTO tblstudent (lname,fname,mname,contact,address,dateofbirth,fathername,fathercontact,mothername,mothercontact,emergencyname,emergencycontact) values ('".$txt_lname."','".$txt_fname."','".$txt_mname."','".$txt_contact."','".$txt_addr."','".$txt_date."', '".$txt_fathername."', '".$txt_fathercontact."', '".$txt_mothername."', '".$txt_mothercontact."', '".$txt_emergencyname."', '".$txt_emergencycontact."')"); 
 			if($query == true){
 	            $_SESSION['added'] = 1;
 	            header ("location: ".$_SERVER['REQUEST_URI']);
