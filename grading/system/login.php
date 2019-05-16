@@ -18,6 +18,7 @@ session_start();
     </head>
 
     <body class="skin-black">
+        <img src='smoothlogo.png'/>
         <div class="container" style="margin-top:30px">
           <div class="col-md-4 col-md-offset-4">
               <div class="panel panel-default">
@@ -42,7 +43,7 @@ session_start();
 
 <div style="padding:10px;">
                                         
-    <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addTeacherModal"><i class="fa fa-plus" aria-hidden="true"></i>Register as Teacher</button>   
+    <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addTeacherModal"><i class="fa fa-plus" aria-hidden="true"></i>Register as Subject Teacher</button>   
 
 <div id="addTeacherModal" class="modal fade">
 <form method="post">
@@ -114,7 +115,7 @@ session_start();
             $numrow1 = mysqli_num_rows($teacher);
 
             $student = mysqli_query($con, "SELECT * from tblstudent where username = '$username' and password = '$password' ");
-                $numrow2 = mysqli_num_rows($student);
+            $numrow2 = mysqli_num_rows($student);
 
             if($numrow > 0)
             {

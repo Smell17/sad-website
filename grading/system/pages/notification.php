@@ -29,7 +29,7 @@ echo '<div class="alert alert-danger alert-autocloseable-danger" style=" positio
     unset($_SESSION['duplicate']);
     
 echo '<div class="alert alert-danger alert-autocloseable-duplicate" style=" position: fixed; top: 1em; right: 1em; z-index: 9999; display: none;">
-     Duplicate Entry
+     Duplicate Entry, please recheck
 </div>'; }?>
 
 
@@ -38,7 +38,7 @@ echo '<div class="alert alert-danger alert-autocloseable-duplicate" style=" posi
     unset($_SESSION['excess']);
     
 echo '<div class="alert alert-warning alert-autocloseable-excess" style="background:#fcf8e3; position: fixed; top: 1em; right: 1em; z-index: 9999; display: none;">
-     Total Percentage is more than 100%. Criteria not save !
+     Total Percentage is more than 100%. Criteria not saved !
 </div>'; }?>
 
 

@@ -18,7 +18,7 @@
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>
-                        Manage Year Level
+                        Manage Grade Level
                     </h1>
                 </section>
 
@@ -30,7 +30,7 @@
                                 <div class="box-header">
                                     <div style="padding:10px;">
                                         
-                                        <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addYLModal"><i class="fa fa-plus" aria-hidden="true"></i> Add Year Level</button>  
+                                        <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addYLModal"><i class="fa fa-plus" aria-hidden="true"></i> Add Grade Level</button>  
 
                                         <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModal"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button> 
 
@@ -43,7 +43,7 @@
                                         <thead>
                                             <tr>
                                                 <th style="width: 20px !important;"><input type="checkbox" name="chk_delete[]" class="cbxMain" onchange="checkMain(this)" /></th>
-                                                <th>Year Level</th>
+                                                <th>Grade Level</th>
                                                 <th>Name</th>
                                                 <th style="width: 40px !important;">Option</th>
                                             </tr>

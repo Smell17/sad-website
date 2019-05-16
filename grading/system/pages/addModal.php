@@ -37,7 +37,7 @@
     <div class="modal-content">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h4 class="modal-title">Add Year Level</h4>
+            <h4 class="modal-title">Add Grade Level</h4>
         </div>
         <div class="modal-body">
             
@@ -95,9 +95,9 @@
                         <input required name="txt_desc" id="txt_desc" class="form-control input-sm" type="text" placeholder="Description" />
                     </div>
                     <div class="form-group">
-                        <label>Year Level:</label>
+                        <label>Grade Level:</label>
                         <select name="ddl_yl" id="ddl_yl" data-style="btn-primary" class="form-control input-sm">
-                            <option selected disabled>-- Select Year Level --</option>
+                            <option selected disabled>-- Select Grade Level --</option>
                             <?php
                                 $q = mysqli_query($con,"SELECT * from tblyearlevel");
                                 while($row=mysqli_fetch_array($q)){
@@ -112,7 +112,7 @@
         </div>
         <div class="modal-footer">
             <input type="button" class="btn btn-default btn-sm" data-dismiss="modal" value="Cancel"/>
-            <input type="submit" class="btn btn-primary btn-sm" id="btn_add" name="btn_add_subj" value="Add Year Level"/>
+            <input type="submit" class="btn btn-primary btn-sm" id="btn_add" name="btn_add_subj" value="Add Grade Level"/>
         </div>
     </div>
   </div>
