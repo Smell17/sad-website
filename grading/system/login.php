@@ -91,13 +91,15 @@ session_start();
         </div>
         <div class="modal-footer">
             <input type="button" class="btn btn-default btn-sm" data-dismiss="modal" value="Cancel"/>
-            <input type="submit" class="btn btn-primary btn-sm" id="btn_add_teacher" name="btn_add_teacher" value="Add Teacher"/>
+            <input type="submit" class="btn btn-primary btn-sm" id="btn_add_teacher" name="btn_add_teacher" value="Register"/>
         </div>
     </div>
   </div>
   </form>
 </div>
 </div> 
+
+
 
 
       <?php
