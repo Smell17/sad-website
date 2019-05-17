@@ -173,7 +173,7 @@ session_start();
                         <input required name="txt_lname" id="txt_lname" class="form-control input-sm" type="text" placeholder="Last Name" />
                     </div>
                     <div class="form-group">
-                        <label>Contact:</label>
+                        <label>Contact Number:</label>
                         <input required name="txt_contact" id="txt_contact" class="form-control input-sm" type="number" placeholder="Contact" />
                     </div>
                     <div class="form-group">
@@ -314,16 +314,17 @@ session_start();
   if(isset($_POST['btn_add_ca'])){
     $txt_fname = $_POST['txt_fname'];
     $txt_lname = $_POST['txt_lname'];
-    $txt_contact = $_POST['txt_contact'];
-    $txt_eaddr = $_POST['txt_eaddr'];
     $txt_uname = $_POST['txt_uname'];
     $txt_pass = $_POST['txt_pass'];
+    $txt_contact = $_POST['txt_contact'];
+    $txt_eaddr = $_POST['txt_eaddr'];
+
 
     $chk = mysqli_query($con,"SELECT * from tbladmin where fname = '".$txt_fname."' and lname = '".$txt_lname."'");
     $ct = mysqli_num_rows($chk);
 
     if($ct == 0){
-      $query = mysqli_query($con,"INSERT INTO tbladmin (fname,lname,username,password,contact,address,accounttype) values ('".$txt_fname."','".$txt_lname."','".$txt_uname."','".$txt_pass."', '".$txt_contact."', '".$txt_eaddr."' ,  'Administrator')"); 
+      $query = mysqli_query($con,"INSERT INTO tbladmin (fname,lname,username,password,email,contact,accounttype) values ('".$txt_fname."','".$txt_lname."','".$txt_uname."','".$txt_pass."', '".$txt_eaddr."', '".$txt_contact."', 'Administrator')"); 
       if($query == true){
               $_SESSION['added'] = 1;
               header ("location: ".$_SERVER['REQUEST_URI']);
