@@ -11,7 +11,7 @@
     unset($_SESSION['edit']);
     
 echo '<div class="alert alert-success alert-autocloseable-editsuccess" style=" position: fixed; top: 1em; right: 1em; z-index: 9999; display: none;">
-     Edited Value Saved!
+     Edited Successfully!
 </div>';
 } ?>
 

@@ -87,6 +87,7 @@
                             ?>
                             <div class="box">
                                 <div class="box-header">
+                                    <!--
                                     <div style="padding:10px;">
                                         <form method="post">
                                         <div class="form-group">
@@ -131,7 +132,9 @@
                                         </div>
                                         </form>
                                 
-                                    </div>                                
+                                    </div>  
+                                -->
+
                                 </div><!-- /.box-header -->
                                 <div class="box-body table-responsive">
                                     <?php
@@ -218,6 +221,7 @@
                                                 <th>Last Name</th>
                                                 <th>First Name</th>
                                                 <th>Middle Name</th>
+                                                <th style="width: 40px !important;">Option</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -238,9 +242,11 @@
                                                     <td>'.$row['lname'].'</td>
                                                     <td>'.$row['fname'].'</td>
                                                     <td>'.$row['mname'].'</td>
+                                                    <td>
+                                                    <button class="btn btn-primary btn-sm" data-target="#viewModal'.$row['id'].'" data-toggle="modal"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> View More</button></td>
                                                 </tr>
                                                 ';
-                                                
+                                                include "viewModal.php";
                                             }
                                             ?>
                                         </tbody>
@@ -257,6 +263,7 @@
                             ?>
 
             <?php include "../notification.php"; ?>
+
 
             <?php include "../addModal.php"; ?>
 

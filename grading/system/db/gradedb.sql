@@ -21,8 +21,12 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `tbladmin` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `fname` varchar(50) NOT NULL,
+  `lname` varchar(50) NOT NULL,
   `username` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `contact` int(11) NOT NULL,
   `accounttype` varchar(20) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
@@ -31,8 +35,8 @@ CREATE TABLE IF NOT EXISTS `tbladmin` (
 -- Dumping data for table `tbladmin`
 --
 
-INSERT INTO `tbladmin` (`id`, `username`, `password`, `accounttype`) VALUES
-(1, 'admin', 'admin', 'Administrator');
+INSERT INTO `tbladmin` (`id`, `fname`, `lname`, `username`, `password`, `email`, `contact`, `accounttype`) VALUES
+(1, 'Mister', 'Administrator', 'admin', 'admin', 'imtheadmin@yahoo.com', 09996969969, 'Administrator');
 
 -- --------------------------------------------------------
 
@@ -229,7 +233,7 @@ CREATE TABLE IF NOT EXISTS `tblteacher` (
   `lname` varchar(20) NOT NULL,
   `fname` varchar(20) NOT NULL,
   `mname` varchar(20) NOT NULL,
-  `contact` int(11) NOT NULL,
+  `contact` int(20) NOT NULL,
   `address` text NOT NULL,
   `username` varchar(20) NOT NULL,
   `password` varchar(20) NOT NULL,

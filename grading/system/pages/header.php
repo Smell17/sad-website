@@ -90,11 +90,11 @@
                                 echo '
                                     <div class="form-group">
                                         <label>Username:</label>
-                                        <input name="txt_username" id="txt_username" class="form-control input-sm" type="text" value="'.$row['username'].'" />
+                                        <input required name="txt_username" id="txt_username" class="form-control input-sm" type="text" value="'.$row['username'].'" />
                                     </div>
                                     <div class="form-group">
                                         <label>Password:</label>
-                                        <input name="txt_password" id="txt_password" class="form-control input-sm" type="password"  value="'.$row['password'].'"/>
+                                        <input required name="txt_password" id="txt_password" class="form-control input-sm" type="password"  value="'.$row['password'].'"/>
                                     </div>';
                             } 
                         }
@@ -104,25 +104,25 @@
                                 echo '
                                     <div class="form-group">
                                         <label>Username:</label>
-                                        <input name="txt_username" id="txt_username" class="form-control input-sm" type="text" value="'.$row['username'].'" />
+                                        <input required name="txt_username" id="txt_username" class="form-control input-sm" type="text" value="'.$row['username'].'" />
                                     </div>
                                     <div class="form-group">
                                         <label>Password:</label>
-                                        <input name="txt_password" id="txt_password" class="form-control input-sm" type="password"  value="'.$row['password'].'"/>
+                                        <input required name="txt_password" id="txt_password" class="form-control input-sm" type="password"  value="'.$row['password'].'"/>
                                     </div>';
                             } 
                         }
                         elseif($_SESSION['role'] == "Student"){
-                            $user = mysqli_query($con,"SELECT * from tblstudent where id = '".$_SESSION['userid']."' ");
+                            $user = mysqli_query($con,"SELECT * from tblrealadmin where id = '".$_SESSION['userid']."' ");
                             while($row = mysqli_fetch_array($user)){
                                 echo '
                                     <div class="form-group">
                                         <label>Username:</label>
-                                        <input name="txt_username" id="txt_username" class="form-control input-sm" type="text" value="'.$row['username'].'" />
+                                        <input required name="txt_username" id="txt_username" class="form-control input-sm" type="text" value="'.$row['username'].'" />
                                     </div>
                                     <div class="form-group">
                                         <label>Password:</label>
-                                        <input name="txt_password" id="txt_password" class="form-control input-sm" type="password"  value="'.$row['password'].'"/>
+                                        <input required name="txt_password" id="txt_password" class="form-control input-sm" type="password"  value="'.$row['password'].'"/>
                                     </div>';
                             } 
                         }
@@ -145,7 +145,7 @@
             if(isset($_POST['btn_saveeditProfile'])){
                 $username = $_POST['txt_username'];
                 $password = $_POST['txt_password'];
-                $confirmpass = $_POST['txt_cpassword'];
+                
 
 
                     if($_SESSION['role'] == "Administrator"){
@@ -163,10 +163,8 @@
                         }
                     }
                     elseif($_SESSION['role'] == "Student"){
-                        $updstudent = mysqli_query($con,"UPDATE tblstudent set username = '$username', password = '$password' where id = '".$_SESSION['userid']."' ");
-                        echo $updstudent;
-                        exit();
-                        if($updstudent == true){
+                        $updadmin = mysqli_query($con,"UPDATE tblrealadmin set username = '$username', password = '$password' where id = '".$_SESSION['userid']."' ");
+                        if($updadmin == true){
                             $_SESSION['edit'] = 1;
                             header ("location: ".$_SERVER['REQUEST_URI']);
                         }

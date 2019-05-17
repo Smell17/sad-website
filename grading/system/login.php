@@ -99,6 +99,8 @@ session_start();
 </div>
 </div> 
 
+
+
 <div style="padding:10px;">
                                         
     <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addRealAdmin"><i class="fa fa-plus" aria-hidden="true"></i>Register as Admin</button>   
@@ -145,6 +147,60 @@ session_start();
 </div>
 </div> 
 
+
+<div style="padding:10px;">
+                                        
+    <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addCAModal"><i class="fa fa-plus" aria-hidden="true"></i>Register as Class Adviser</button>   
+
+<div id="addCAModal" class="modal fade">
+<form method="post">
+  <div class="modal-dialog modal-sm" style="width:300px !important;">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">Add Class Adviser</h4>
+        </div>
+        <div class="modal-body">
+            
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>First Name:</label>
+                        <input required name="txt_fname" id="txt_fname" class="form-control input-sm" type="text" placeholder="First Name" />
+                    </div>
+                    <div class="form-group">
+                        <label>Last Name:</label>
+                        <input required name="txt_lname" id="txt_lname" class="form-control input-sm" type="text" placeholder="Last Name" />
+                    </div>
+                    <div class="form-group">
+                        <label>Contact:</label>
+                        <input required name="txt_contact" id="txt_contact" class="form-control input-sm" type="number" placeholder="Contact" />
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address:</label>
+                        <input required name="txt_eaddr" id="txt_eaddr" class="form-control input-sm" type="text" placeholder="Email Address" />
+                    </div>
+                    <div class="form-group">
+                        <label>Username:</label>
+                        <input required name="txt_uname" id="txt_uname" class="form-control input-sm" type="text" placeholder="Username" />
+                    </div>
+                    <div class="form-group">
+                        <label>Password:</label>
+                        <input required name="txt_pass" id="txt_pass" class="form-control input-sm" type="password" placeholder="Password" />
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <div class="modal-footer">
+            <input type="button" class="btn btn-default btn-sm" data-dismiss="modal" value="Cancel"/>
+            <input type="submit" class="btn btn-primary btn-sm" id="btn_add_ca" name="btn_add_ca" value="Register"/>
+        </div>
+    </div>
+  </div>
+  </form>
+</div>
+</div>
 
 
       <?php
@@ -225,6 +281,7 @@ session_start();
 ?>
 
 
+
 <?php
   if(isset($_POST['btn_add_teacher'])){
     $txt_fname = $_POST['txt_fname'];
@@ -240,6 +297,33 @@ session_start();
 
     if($ct == 0){
       $query = mysqli_query($con,"INSERT INTO tblteacher (lname,fname,mname,contact,address,username,password) values ('".$txt_lname."','".$txt_fname."','".$txt_mname."','".$txt_contact."','".$txt_addr."','".$txt_uname."','".$txt_pass."')"); 
+      if($query == true){
+              $_SESSION['added'] = 1;
+              header ("location: ".$_SERVER['REQUEST_URI']);
+      }
+    }
+    else{
+      $_SESSION['duplicate'] = 1;
+            header ("location: ".$_SERVER['REQUEST_URI']);
+            echo 'registration error';
+    }
+  }
+?>
+
+<?php
+  if(isset($_POST['btn_add_ca'])){
+    $txt_fname = $_POST['txt_fname'];
+    $txt_lname = $_POST['txt_lname'];
+    $txt_contact = $_POST['txt_contact'];
+    $txt_eaddr = $_POST['txt_eaddr'];
+    $txt_uname = $_POST['txt_uname'];
+    $txt_pass = $_POST['txt_pass'];
+
+    $chk = mysqli_query($con,"SELECT * from tbladmin where fname = '".$txt_fname."' and lname = '".$txt_lname."'");
+    $ct = mysqli_num_rows($chk);
+
+    if($ct == 0){
+      $query = mysqli_query($con,"INSERT INTO tbladmin (fname,lname,username,password,contact,address,accounttype) values ('".$txt_fname."','".$txt_lname."','".$txt_uname."','".$txt_pass."', '".$txt_contact."', '".$txt_eaddr."' ,  'Administrator')"); 
       if($query == true){
               $_SESSION['added'] = 1;
               header ("location: ".$_SERVER['REQUEST_URI']);

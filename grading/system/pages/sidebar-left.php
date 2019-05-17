@@ -53,7 +53,7 @@
                             </li>
                             <li>
                                 <a href="../yearlevel/yearlevel.php">
-                                    <i class="fa fa-calendar"></i> <span>Year Level</span>
+                                    <i class="fa fa-calendar"></i> <span>Grade Level</span>
                                 </a>
                             </li>
                             <li>
