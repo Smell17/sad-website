@@ -27,7 +27,7 @@
                     <div class="row">
                         <!-- left column -->
                             <?php
-                            if(($_SESSION['role']) == "Administrator")
+                            if(($_SESSION['role']) == "Administrator" )
                             {
                             ?>
 
@@ -82,7 +82,7 @@
                             </div><!-- /.box -->
                             <?php
                             }
-                            else if(($_SESSION['role']) == "Teacher")
+                            else if(($_SESSION['role']) == "Teacher" || ($_SESSION['role']) == "Student")
                             {
                             ?>
                             <div class="box">
@@ -203,6 +203,7 @@
                                                 
                                             }
                                             ?>
+
                                         </tbody>
                                     </table>
                                     <?php

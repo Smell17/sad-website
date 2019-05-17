@@ -16,7 +16,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbladmin`
+-- Table structure for table `tbladmin` which is Class Adviser 
 --
 
 CREATE TABLE IF NOT EXISTS `tbladmin` (
@@ -35,6 +35,32 @@ INSERT INTO `tbladmin` (`id`, `username`, `password`, `accounttype`) VALUES
 (1, 'admin', 'admin', 'Administrator');
 
 -- --------------------------------------------------------
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tblrealadmin` which is Admin
+--
+
+CREATE TABLE IF NOT EXISTS `tblrealadmin` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `fname` varchar(50) NOT NULL,
+  `lname` varchar(50) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `tbladmin`
+--
+
+INSERT INTO `tblrealadmin` (`id`, `fname`, `lname`, `username`, `password`) VALUES
+(1, 'Nick', 'Valentine', 'nick', '123');
+
+-- --------------------------------------------------------
+
 
 --
 -- Table structure for table `tblclass`

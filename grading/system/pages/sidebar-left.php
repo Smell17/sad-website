@@ -25,10 +25,10 @@
                                     }
                                 }
                                 elseif($_SESSION['role'] == "Student"){
-                                    $user = mysqli_query($con,"SELECT * from tblstudent where id = '".$_SESSION['userid']."' ");
+                                    $user = mysqli_query($con,"SELECT * from tblrealadmin where id = '".$_SESSION['userid']."' ");
                                     while($row = mysqli_fetch_array($user)){
                                         $_SESSION['user'] = $row['fname'].' '.$row['lname'];
-                                        echo $row['fname'].' '.$row['lname'];
+                                        echo $row['fname'].' '.$row['lname'] ;
                                     }
                                 }
                                 echo '
@@ -108,8 +108,8 @@
                         elseif($_SESSION['role'] == "Student"){
                             echo '
                             <li>
-                            <a href="../grade/grade.php">
-                                <i class="fa fa-print"></i> <span>View Grade</span>
+                            <a href="../student/student.php">
+                                <i class="fa fa-print"></i> <span>View Student List</span>
                             </a>
                             </li>';
                         }
