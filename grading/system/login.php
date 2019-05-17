@@ -83,7 +83,7 @@ session_start();
                     </div>
                     <div class="form-group">
                         <label>Password:</label>
-                        <input required name="txt_pass" id="txt_pass" class="form-control input-sm" type="password" placeholder="Password" />
+                        <input required name="txt_pass" id="txt_pass" class="form-control input-sm" type="password" minlength="9" placeholder="Password"  />
                     </div>
                 </div>
             </div>
@@ -131,7 +131,7 @@ session_start();
                     </div>
                     <div class="form-group">
                         <label>Password:</label>
-                        <input required name="txt_pass" id="txt_pass" class="form-control input-sm" type="password" placeholder="Password" />
+                        <input required name="txt_pass" id="txt_pass" class="form-control input-sm" type="password" minlength="9" placeholder="Password" />
                     </div>
                 </div>
             </div>
@@ -186,7 +186,7 @@ session_start();
                     </div>
                     <div class="form-group">
                         <label>Password:</label>
-                        <input required name="txt_pass" id="txt_pass" class="form-control input-sm" type="password" placeholder="Password" />
+                        <input required name="txt_pass" id="txt_pass" class="form-control input-sm" type="password" minlength="9" placeholder="Password" />
                     </div>
                 </div>
             </div>

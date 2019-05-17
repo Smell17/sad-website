@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `tbladmin` (
 --
 
 INSERT INTO `tbladmin` (`id`, `fname`, `lname`, `username`, `password`, `email`, `contact`, `accounttype`) VALUES
-(1, 'Mister', 'Administrator', 'admin', 'admin', 'imtheadmin@yahoo.com', 09996969969, 'Administrator');
+(1, 'Mister', 'Administrator', 'admin', 'admin1234', 'imtheadmin@yahoo.com', 09996969969, 'Administrator');
 
 -- --------------------------------------------------------
 

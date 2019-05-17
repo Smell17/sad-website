@@ -94,7 +94,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Password:</label>
-                                        <input required name="txt_password" id="txt_password" class="form-control input-sm" type="password"  value="'.$row['password'].'"/>
+                                        <input required name="txt_password" id="txt_password" class="form-control input-sm" type="password" minlength="9" value="'.$row['password'].'"/>
                                     </div>';
                             } 
                         }
@@ -108,7 +108,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Password:</label>
-                                        <input required name="txt_password" id="txt_password" class="form-control input-sm" type="password"  value="'.$row['password'].'"/>
+                                        <input required name="txt_password" id="txt_password" class="form-control input-sm" type="password" minlength="9"  value="'.$row['password'].'"/>
                                     </div>';
                             } 
                         }
@@ -122,7 +122,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Password:</label>
-                                        <input required name="txt_password" id="txt_password" class="form-control input-sm" type="password"  value="'.$row['password'].'"/>
+                                        <input required name="txt_password" id="txt_password" class="form-control input-sm" type="password" minlength="9"  value="'.$row['password'].'"/>
                                     </div>';
                             } 
                         }
@@ -152,9 +152,9 @@
                         $updadmin = mysqli_query($con,"UPDATE tbladmin set username = '$username', password = '$password' where id = '".$_SESSION['userid']."' ");
                         if($updadmin == true){
                             $_SESSION['edit'] = 1;
-                            header ("location: ".$_SERVER['REQUEST_URI']);
+                            //header ("location: ".$_SERVER['REQUEST_URI']);
                         }
-                    }
+                    } //bugged
                     elseif($_SESSION['role'] == "Teacher"){
                         $updfaculty = mysqli_query($con,"UPDATE tblteacher set username = '$username', password = '$password' where id = '".$_SESSION['userid']."' ");
                         if($updfaculty == true){
