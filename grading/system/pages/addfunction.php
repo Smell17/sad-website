@@ -185,16 +185,27 @@
 	if(isset($_POST['btn_add_adv'])){
 		$ddl_teacher = $_POST['ddl_teacher'];
 		$ddl_class = $_POST['ddl_class'];
-		$ddl_subj = $_POST['ddl_subj'];
+		// $ddl_subj = $_POST['ddl_subj'];
 
-		$chk = mysqli_query($con,"SELECT * from tblteacheradvisory where teacherid = '$ddl_teacher' and classid = '$ddl_class' and subjectid = '$ddl_subj' ");
+		$chk = mysqli_query($con,"SELECT * from tblteacheradvisory where teacherid = '$ddl_teacher' and classid = '$ddl_class' ");
 		$ct = mysqli_num_rows($chk);
 
 		if($ct == 0){
-			$query = mysqli_query($con,"INSERT INTO tblteacheradvisory (teacherid,classid,subjectid) values ('".$ddl_teacher."','".$ddl_class."','".$ddl_subj."')"); 
-			if($query == true){
-	            $_SESSION['added'] = 1;
+			//CHECK IF TEACHER ALREADY HAS AN ADVISORY CLASS FOR THE SCHOOL YEAR
+			//get all class IDs of those with the schoolyear of the selected class
+
+			$chk = mysqli_query($con,"SELECT * from tblteacheradvisory where teacherid = '$ddl_teacher' and classid in (SELECT id from tblclass where schoolyearid in (SELECT schoolyearid from tblclass where tblclass.id = '$ddl_class'))");
+			$ct = mysqli_num_rows($chk);
+
+			if($ct > 0){
+				$_SESSION['duplicate_advisory'] = 1;
 	            header ("location: ".$_SERVER['REQUEST_URI']);
+			} else {
+				$query = mysqli_query($con,"INSERT INTO tblteacheradvisory (teacherid,classid,subjectid) values ('".$ddl_teacher."','".$ddl_class."','".$ddl_subj."')"); 
+				if($query == true){
+		            $_SESSION['added'] = 1;
+		            header ("location: ".$_SERVER['REQUEST_URI']);
+				}
 			}
 		}
 		else{

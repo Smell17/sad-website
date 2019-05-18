@@ -32,6 +32,14 @@ echo '<div class="alert alert-danger alert-autocloseable-duplicate" style=" posi
      Duplicate Entry, please recheck
 </div>'; }?>
 
+<?php if(isset($_SESSION['duplicate_advisory'])){
+    echo '<script>$(document).ready(function (){duplicate();});</script>';
+    unset($_SESSION['duplicate_advisory']);
+    
+echo '<div class="alert alert-danger alert-autocloseable-duplicate" style=" position: fixed; top: 1em; right: 1em; z-index: 9999; display: none;">
+     Teacher already has advisory class for the school year, please recheck
+</div>'; }?>
+
 
 <?php if(isset($_SESSION['excess'])){
     echo '<script>$(document).ready(function (){excess();});</script>';
