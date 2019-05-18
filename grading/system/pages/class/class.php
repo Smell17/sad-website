@@ -51,7 +51,7 @@
                                         </thead>
                                         <tbody>
                                             <?php
-                                            $squery = mysqli_query($con, "select *,c.id as cid,y.id as yid, s.id as sid from tblclass c left join tblschoolyear s on c.schoolyearid = s.id left join tblyearlevel y on c.yearlevelid = y.id order by schoolyear desc, yearlevel, classname");
+                                            $squery = mysqli_query($con, "select *,CONCAT(t.lname, ', ', t.fname, ' ',t.mname) as tname,c.id as cid,y.id as yid, s.id as sid from tblclass c left join tblschoolyear s on c.schoolyearid = s.id left join tblyearlevel y on c.yearlevelid = y.id left join tblteacheradvisory on tblteacheradvisory.classid = c.id left join tblteacher t on t.id = tblteacheradvisory.teacherid order by schoolyear desc, yearlevel, classname");
                                             while($row = mysqli_fetch_array($squery))
                                             {
                                                 echo '
@@ -59,6 +59,7 @@
                                                     <td><input type="checkbox" name="chk_delete[]" class="chk_delete" value="'.$row['cid'].'" /></td>
                                                     <td>'.$row['yearlevel']." - ".$row['classname'].'</td>
                                                     <td>'.$row['schoolyear'].'</td>
+                                                    <td>'.$row['tname'].'</td>
                                                     <td><button class="btn btn-primary btn-sm" data-target="#editModal'.$row['cid'].'" data-toggle="modal"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></td>
                                                 </tr>
                                                 ';
