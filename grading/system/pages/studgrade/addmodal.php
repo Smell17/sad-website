@@ -13,7 +13,7 @@
                 <div class="col-md-12">
                     <div class="form-group" >
                         <label>School Year:</label>
-                        <select name="ddl_sy" id="ddl_sy" data-style="btn-primary" class="form-control input-sm" onchange="show_class()">
+                        <select name="ddl_sy" id="ddl_sy" data-style="btn-primary" class="form-control input-sm" required onchange="show_class()">
                             <option selected disabled>-- Select School Year --</option>
                             <?php
                                 $q = mysqli_query($con,"SELECT * from tblschoolyear");
@@ -25,19 +25,19 @@
                     </div>
                     <div class="form-group">
                         <label>Class:</label>
-                        <select name="ddl_class" id="ddl_class" data-style="btn-primary" class="form-control input-sm" onchange="show_student()">
+                        <select name="ddl_class" id="ddl_class" data-style="btn-primary" class="form-control input-sm" required onchange="show_student()">
                             <option selected disabled>-- Select School Year First --</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label>Student:</label>
-                        <select name="ddl_stud" id="ddl_stud" data-style="btn-primary" class="form-control input-sm" onchange="show_subj()">
+                        <select name="ddl_stud" id="ddl_stud" data-style="btn-primary" class="form-control input-sm" required onchange="show_subj()">
                             <option selected disabled>-- Select Subject First --</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label>Subject:</label>
-                        <select name="ddl_subj" id="ddl_subj" data-style="btn-primary" class="form-control input-sm" onchange="show_grade()">
+                        <select name="ddl_subj" id="ddl_subj" data-style="btn-primary" class="form-control input-sm" required onchange="show_grade()">
                             <option selected disabled>-- Select Subject First --</option>
                         </select>
                     </div>
