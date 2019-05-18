@@ -311,7 +311,7 @@ INSERT INTO `tblyearlevel` (`id`, `yearlevel`, `description`) VALUES
 --
 
 CREATE TABLE `tblstudentadvisory` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `classid` int(11) NOT NULL,
   `studentid` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -325,5 +325,14 @@ CREATE TABLE `tblstudentadvisory` (
 --
 ALTER TABLE `tblstudentadvisory`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `uniquestudentadvisory` (`classid`,`studentid`);
-  
+  ADD UNIQUE KEY `tblstudentadvisory` (`classid`,`studentid`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `tblstudentadvisory`
+--
+ALTER TABLE `tblstudentadvisory`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
