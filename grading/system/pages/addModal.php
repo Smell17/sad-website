@@ -271,19 +271,19 @@
                         <select name="ddl_class" id="ddl_class" data-style="btn-primary" class="form-control input-sm">
                             <option selected disabled>-- Select Class --</option>
                             <?php
-                                $q = mysqli_query($con,"SELECT * from tblclass");
+                                $q = mysqli_query($con,"SELECT * from tblclass left join tblyearlevel on tblclass.yearlevelid = tblyearlevel.id order by yearlevel, classname");
                                 while($row=mysqli_fetch_array($q)){
-                                    echo '<option value="'.$row['id'].'">'.$row['classname'].'</option>';
+                                    echo '<option value="'.$row['id'].'">'.$row['yearlevel']." - ".$row['classname'].'</option>';
                                 }
                             ?>
                         </select>
                     </div>
                     <div class="form-group">
                         <label>Student:</label>
-                        <select name="ddl_stud" id="ddl_stud" data-style="btn-primary" class="form-control input-sm">
+                        <select name="ddl_stud[]" id="ddl_stud" data-style="btn-primary" class="form-control input-sm custom-select" multiple>
                             <option selected disabled>-- Select Student --</option>
                             <?php
-                                $q = mysqli_query($con,"SELECT * from tblstudent");
+                                $q = mysqli_query($con,"SELECT * from tblstudent order by lname, fname");
                                 while($row=mysqli_fetch_array($q)){
                                     echo '<option value="'.$row['id'].'">'.$row['lname'].', '.$row['fname'].' '.$row['mname'].'</option>';
                                 }
@@ -292,7 +292,7 @@
                     </div>
                     <div class="form-group">
                         <label>Subject:</label>
-                        <select name="ddl_subj" id="ddl_subj" data-style="btn-primary" class="form-control input-sm">
+                        <select name="ddl_subj[]" id="ddl_subj" data-style="btn-primary" class="form-control custom-select input-sm" multiple>
                             <option selected disabled>-- Select Subject --</option>
                             <?php
                                 $q = mysqli_query($con,"SELECT * from tblsubjects");

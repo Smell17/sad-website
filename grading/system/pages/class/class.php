@@ -43,23 +43,22 @@
                                         <thead>
                                             <tr>
                                                 <th style="width: 20px !important;"><input type="checkbox" name="chk_delete[]" class="cbxMain" onchange="checkMain(this)" /></th>
-                                                <th>Section Name</th>
+                                                <th>Year Level - Section Name</th>
                                                 <th>School Year</th>
-                                                <th>Year Level</th>
+                                                <th>Adviser</th>
                                                 <th style="width: 40px !important;">Option</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php
-                                            $squery = mysqli_query($con, "select *,c.id as cid,y.id as yid, s.id as sid from tblclass c left join tblschoolyear s on c.schoolyearid = s.id left join tblyearlevel y on c.yearlevelid = y.id");
+                                            $squery = mysqli_query($con, "select *,c.id as cid,y.id as yid, s.id as sid from tblclass c left join tblschoolyear s on c.schoolyearid = s.id left join tblyearlevel y on c.yearlevelid = y.id order by schoolyear desc, yearlevel, classname");
                                             while($row = mysqli_fetch_array($squery))
                                             {
                                                 echo '
                                                 <tr>
                                                     <td><input type="checkbox" name="chk_delete[]" class="chk_delete" value="'.$row['cid'].'" /></td>
-                                                    <td>'.$row['classname'].'</td>
+                                                    <td>'.$row['yearlevel']." - ".$row['classname'].'</td>
                                                     <td>'.$row['schoolyear'].'</td>
-                                                    <td>'.$row['yearlevel'].'</td>
                                                     <td><button class="btn btn-primary btn-sm" data-target="#editModal'.$row['cid'].'" data-toggle="modal"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></td>
                                                 </tr>
                                                 ';

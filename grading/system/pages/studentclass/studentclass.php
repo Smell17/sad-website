@@ -51,15 +51,15 @@
                                         </thead>
                                         <tbody>
                                             <?php
-                                            $squery = mysqli_query($con, "select *,c.id as cid, st.id as stid, sb.id as sbid, sc.id as sid,CONCAT(st.lname, ', ', st.fname, ' ',st.mname) as sname from tblstudentclass sc left join tblclass c on sc.classid = c.id left join tblstudent st on sc.studentid = st.id left join tblsubjects sb on sc.subjectid = sb.id");
+                                            $squery = mysqli_query($con, "select *,c.id as cid, st.id as stid, sb.id as sbid, sc.id as sid,CONCAT(st.lname, ', ', st.fname, ' ',st.mname) as sname, sb.description as sbdescription from tblstudentclass sc left join tblclass c on sc.classid = c.id left join tblstudent st on sc.studentid = st.id left join tblsubjects sb on sc.subjectid = sb.id left join tblyearlevel on c.yearlevelid = tblyearlevel.id");
                                             while($row = mysqli_fetch_array($squery))
                                             {
                                                 echo '
                                                 <tr>
                                                     <td><input type="checkbox" name="chk_delete[]" class="chk_delete" value="'.$row['sid'].'" /></td>
-                                                    <td>'.$row['classname'].'</td>
+                                                    <td>'.$row['yearlevel']." - ".$row['classname'].'</td>
                                                     <td>'.$row['sname'].'</td>
-                                                    <td>'.$row['subjectname'].' - '.$row['description'].'</td>
+                                                    <td>'.$row['subjectname'].' - '.$row['sbdescription'].'</td>
                                                     <td><button class="btn btn-primary btn-sm" data-target="#editModal'.$row['sid'].'" data-toggle="modal"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></td>
                                                 </tr>
                                                 ';

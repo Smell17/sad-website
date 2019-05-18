@@ -51,14 +51,14 @@
                                         </thead>
                                         <tbody>
                                             <?php
-                                            $squery = mysqli_query($con, "select *,y.id as yid from tblsubjects s left join tblyearlevel y on s.yearlevelid = y.id ");
+                                            $squery = mysqli_query($con, "select *,s.description as subjectdescription,y.description, y.id as yid from tblsubjects s left join tblyearlevel y on s.yearlevelid = y.id ");
                                             while($row = mysqli_fetch_array($squery))
                                             {
                                                 echo '
                                                 <tr>
                                                     <td><input type="checkbox" name="chk_delete[]" class="chk_delete" value="'.$row['id'].'" /></td>
                                                     <td>'.$row['subjectname'].'</td>
-                                                    <td>'.$row['description'].'</td>
+                                                    <td>'.$row['subjectdescription'].'</td>
                                                     <td>'.$row['yearlevel'].'</td>
                                                     <td><button class="btn btn-primary btn-sm" data-target="#editModal'.$row['id'].'" data-toggle="modal"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></td>
                                                 </tr>

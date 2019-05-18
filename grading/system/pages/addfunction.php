@@ -131,20 +131,30 @@
 		$ddl_stud = $_POST['ddl_stud'];
 		$ddl_subj = $_POST['ddl_subj'];
 
-		$chk = mysqli_query($con,"SELECT * from tblstudentclass where classid = '$ddl_class' and studentid = '$ddl_stud' and subjectid = '$ddl_subj' ");
-		$ct = mysqli_num_rows($chk);
-
-		if($ct == 0){
-			$query = mysqli_query($con,"INSERT INTO tblstudentclass (classid,studentid,subjectid) values ('".$ddl_class."','".$ddl_stud."','".$ddl_subj."')"); 
-			if($query == true){
-	            $_SESSION['added'] = 1;
-	            header ("location: ".$_SERVER['REQUEST_URI']);
+		foreach($ddl_stud as $student) {
+			foreach ($ddl_subj as $subj) {
+				if(mysqli_num_rows(mysqli_query($con,"SELECT * from tblstudentclass where classid = '$ddl_class' and studentid = '$student' and subjectid = '$subj'")) ==0) {
+					$query = mysqli_query($con,"INSERT INTO tblstudentclass (classid,studentid,subjectid) values ('".$ddl_class."','".$student."','".$subj."')");	
+				}
 			}
 		}
-		else{
-			$_SESSION['duplicate'] = 1;
-            header ("location: ".$_SERVER['REQUEST_URI']);
-		}
+		$_SESSION['added'] = 1;
+        header ("location: ".$_SERVER['REQUEST_URI']);
+		// } else {
+		// 	$_SESSION['duplicate'] = 1;
+  //           header ("location: ".$_SERVER['REQUEST_URI']);
+		// }
+
+		// $chk = mysqli_query($con,"SELECT * from tblstudentclass where classid = '$ddl_class' and studentid = '$ddl_stud' and subjectid = '$ddl_subj' ");
+		// $ct = mysqli_num_rows($chk);
+
+		// if($ct == 0){
+			// $query = mysqli_query($con,"INSERT INTO tblstudentclass (classid,studentid,subjectid) values ('".$ddl_class."','".$ddl_stud."','".$ddl_subj."')");  
+		// }
+		// else{
+		// 	$_SESSION['duplicate'] = 1;
+  //           header ("location: ".$_SERVER['REQUEST_URI']);
+		// }
 	}
 ?>
 
