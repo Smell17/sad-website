@@ -315,6 +315,49 @@
   </form>
 </div>
 
+<!-- ========================= STUDENT ADVISORY MODAL ======================= -->
+<div id="addStudentAdvisoryModal" class="modal fade">
+<form method="post">
+  <div class="modal-dialog modal-sm" style="width:300px !important;">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">Add Student to Advisory Class</h4>
+        </div>
+        <div class="modal-body">
+            
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Student:</label>
+                        <select name="ddl_stud[]" id="ddl_stud" data-style="btn-primary" class="form-control input-sm custom-select" multiple>
+                            <option selected disabled>-- Select Student --</option>
+                            <?php
+                                $q = mysqli_query($con,"SELECT * from tblstudent order by lname, fname");
+                                while($row=mysqli_fetch_array($q)){
+                                    echo '<option value="'.$row['id'].'">'.$row['lname'].', '.$row['fname'].' '.$row['mname'].'</option>';
+                                }
+                            ?>
+                        </select>
+                        <?php 
+                            if(isset($_GET['classid'])) {
+                                echo '<input type="hidden" name="ddl_classid" value="'.$_GET["classid"].'">';
+                            }
+                        ?>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <div class="modal-footer">
+            <input type="button" class="btn btn-default btn-sm" data-dismiss="modal" value="Cancel"/>
+            <input type="submit" class="btn btn-primary btn-sm" id="btn_add_studclass" name="btn_add_studadvisory" value="Add Student to Advisory Class"/>
+        </div>
+    </div>
+  </div>
+  </form>
+</div>
+
 
 
 
@@ -404,7 +447,7 @@
                         <select name="ddl_class" id="ddl_class" data-style="btn-primary" class="form-control input-sm">
                             <option selected disabled>-- Select Class --</option>
                             <?php
-                                $q = mysqli_query($con,"SELECT tblclass.*, tblschoolyear.schoolyear as schoolyear, tblyearlevel.yearlevel as yearlevel from tblclass left join tblschoolyear on tblclass.schoolyearid = tblschoolyear.id left join tblyearlevel on tblclass.yearlevelid = tblyearlevel.id order by schoolyear, yearlevel");
+                                $q = mysqli_query($con,"SELECT tblclass.*, tblschoolyear.schoolyear as schoolyear, tblyearlevel.yearlevel as yearlevel from tblclass left join tblschoolyear on tblclass.schoolyearid = tblschoolyear.id left join tblyearlevel on tblclass.yearlevelid = tblyearlevel.id where tblclass.id not in (select classid from tblteacheradvisory) order by schoolyear, yearlevel");
                                 while($row=mysqli_fetch_array($q)){
                                     echo '<option value="'.$row['id'].'">'.$row['schoolyear'].": " .$row['yearlevel'] . " - " . $row['classname'].'</option>';
                                 }

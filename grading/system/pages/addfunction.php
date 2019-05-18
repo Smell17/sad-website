@@ -131,8 +131,10 @@
 		$ddl_stud = $_POST['ddl_stud'];
 		$ddl_subj = $_POST['ddl_subj'];
 
+		//loop through all selected students by subject
 		foreach($ddl_stud as $student) {
 			foreach ($ddl_subj as $subj) {
+				//if combination of class, student, subject doesnt exist, add
 				if(mysqli_num_rows(mysqli_query($con,"SELECT * from tblstudentclass where classid = '$ddl_class' and studentid = '$student' and subjectid = '$subj'")) ==0) {
 					$query = mysqli_query($con,"INSERT INTO tblstudentclass (classid,studentid,subjectid) values ('".$ddl_class."','".$student."','".$subj."')");	
 				}
@@ -155,6 +157,31 @@
 		// 	$_SESSION['duplicate'] = 1;
   //           header ("location: ".$_SERVER['REQUEST_URI']);
 		// }
+	}
+?>
+
+
+<!-- =========  ADD STUDENT ADVISORY  ============== -->
+<?php
+	if(isset($_POST['btn_add_studadvisory'])){
+		$ddl_stud = $_POST['ddl_stud'];
+		$ddl_classid = $_POST['ddl_classid'];
+
+		$chk = mysqli_query($con,"SELECT studentid from tblstudentadvisory where classid = '".$ddl_classid);
+		
+		$students_already_in_advisory = array();
+		while($row=mysqli_fetch_array($chk)){
+            $students_already_in_advisory[] = $row['studentid'];
+        }
+
+
+        $students_for_adding = array_diff($ddl_stud, $students_already_in_advisory);
+
+		foreach($students_for_adding as $student) {
+			$query = mysqli_query($con,"INSERT INTO tblstudentadvisory (classid,studentid) values ('".$ddl_classid."','".$student."')");	
+		}
+		$_SESSION['added'] = 1;
+        header ("location: ".$_SERVER['REQUEST_URI']);
 	}
 ?>
 

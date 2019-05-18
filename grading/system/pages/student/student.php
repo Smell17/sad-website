@@ -56,7 +56,7 @@
                                         </thead>
                                         <tbody>
                                             <?php
-                                            $squery = mysqli_query($con, "select *,CONCAT(lname, ', ', fname, ' ',mname) as sname from tblstudent");
+                                            $squery = mysqli_query($con, "select *,CONCAT(lname, ', ', fname, ' ',mname) as sname from tblstudent order by lname, fname, mname");
                                             while($row = mysqli_fetch_array($squery))
                                             {
                                                 echo '

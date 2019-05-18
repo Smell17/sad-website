@@ -14,12 +14,25 @@
             <?php include('../sidebar-left.php'); ?>
 
             <!-- Right side column. Contains the navbar and content of the page -->
+            <?php $val = $_GET["classid"];
+                $squery = mysqli_query($con, "SELECT *,CONCAT(t.lname, ', ', t.fname, ' ',t.mname) as tname FROM tblclass left join tblschoolyear on tblschoolyear.id = tblclass.schoolyearid left join tblteacheradvisory on tblteacheradvisory.classid = tblclass.id left join tblteacher t on t.id = tblteacheradvisory.teacherid left join tblyearlevel on tblclass.yearlevelid = tblyearlevel.id WHERE tblclass.id = ".$val." LIMIT 1");
+                while($row = mysqli_fetch_array($squery))
+                {
+                    $classname = $row['classname'];
+                    $schoolyear = $row['schoolyear'];
+                    $adviser = $row['tname'];
+                    $yearlevel = $row['yearlevel'];
+                }
+
+            ?>
             <aside class="right-side">
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
+                    <a href="../class/class.php">< Back to classes</a><br><br>
                     <h1>
-                        Manage Class 
+                        <?php echo $yearlevel . ' - ' . $classname . " (School year " . $schoolyear . ")"; ?>
                     </h1>
+                    <h4>Class adviser: <?php echo $adviser; ?></h4>
                 </section>
 
                 <!-- Main content -->
@@ -30,7 +43,7 @@
                                 <div class="box-header">
                                     <div style="padding:10px;">
                                         
-                                        <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addClassModal"><i class="fa fa-plus" aria-hidden="true"></i> Add Class</button>  
+                                        <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addStudentAdvisoryModal"><i class="fa fa-plus" aria-hidden="true"></i> Add Students</button>  
 
                                         <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModal"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button> 
 
@@ -43,34 +56,34 @@
                                         <thead>
                                             <tr>
                                                 <th style="width: 20px !important;"><input type="checkbox" name="chk_delete[]" class="cbxMain" onchange="checkMain(this)" /></th>
-                                                <th>Year Level - Section Name</th>
-                                                <th>School Year</th>
-                                                <th>Adviser</th>
+                                                <th>Student Name</th>
+                                                <th>Contact</th>
+                                                <th>Address</th>
                                                 <th style="width: 40px !important;">Option</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php
-                                            $squery = mysqli_query($con, "select *,CONCAT(t.lname, ', ', t.fname, ' ',t.mname) as tname,c.id as cid,y.id as yid, s.id as sid from tblclass c left join tblschoolyear s on c.schoolyearid = s.id left join tblyearlevel y on c.yearlevelid = y.id left join tblteacheradvisory on tblteacheradvisory.classid = c.id left join tblteacher t on t.id = tblteacheradvisory.teacherid order by schoolyear desc, yearlevel, classname");
+                                            $squery = mysqli_query($con, "select *,CONCAT(lname, ', ', fname, ' ',mname) as sname from tblstudent where tblstudent.id in (select studentid from tblstudentadvisory where classid = ".$val.")order by lname, fname, mname");
                                             while($row = mysqli_fetch_array($squery))
                                             {
                                                 echo '
                                                 <tr>
-                                                    <td><input type="checkbox" name="chk_delete[]" class="chk_delete" value="'.$row['cid'].'" /></td>
-                                                    <td>'.$row['yearlevel']." - ".$row['classname'].'</td>
-                                                    <td>'.$row['schoolyear'].'</td>
-                                                    <td>'.$row['tname'].'</td>
-                                                    <td style="white-space: nowrap"><button class="btn btn-primary btn-sm" data-target="#editModal'.$row['cid'].'" data-toggle="modal"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button> <a href="../class/class-manage.php?classid='.$row['cid'].'" class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Manage Students</a></td>
+                                                    <td><input type="checkbox" name="chk_delete[]" class="chk_delete" value="'.$row['id'].'" /></td>
+                                                    <td>'.$row['sname'].'</td>
+                                                    <td>'.$row['contact'].'</td>
+                                                    <td>'.$row['address'].'</td>
+                                                    <td><button class="btn btn-primary btn-sm" data-target="#editModal'.$row['id'].'" data-toggle="modal"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></td>
                                                 </tr>
                                                 ';
                                                 
-                                                include "editModal.php";
+                                                // include "editModal.php";
                                             }
                                             ?>
                                         </tbody>
                                     </table>
 
-                                    <?php include "../deleteModal.php"; ?>
+                                    <?php include "deleteModalClassManage.php"; ?>
 
                                     </form>
                                 </div><!-- /.box-body -->
