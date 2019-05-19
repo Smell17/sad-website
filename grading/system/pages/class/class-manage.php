@@ -110,21 +110,22 @@
                                         </thead>
                                         <tbody>
                                             <?php
-                                            $squery = mysqli_query($con, "select *,CONCAT(tblteacher.lname, ', ', tblteacher.fname, ' ',tblteacher.mname) as tname, tblteacher.id as subjectteacherid, tblsubjects.id as subjectid from tblsubjects left join tblsubjectteacher on tblsubjectteacher.subjectid = tblsubjects.id left join tblteacher on tblteacher.id = tblsubjectteacher.teacherid where tblsubjects.yearlevelid = ".$yearlevelid);
+                                            $squery = mysqli_query($con, "select *,CONCAT(tblteacher.lname, ', ', tblteacher.fname, ' ',tblteacher.mname) as tname, tblteacher.id as subjectteacherid, tblsubjects.id as subjectid, tblsubjectteacher.classid as classid from tblsubjects left join tblsubjectteacher on tblsubjectteacher.subjectid = tblsubjects.id left join tblteacher on tblteacher.id = tblsubjectteacher.teacherid where tblsubjects.yearlevelid = ".$yearlevelid);
                                             while($row = mysqli_fetch_array($squery))
                                             {
                                                 if(is_null($row['tname'])){
                                                     $row['tname'] = "No teacher set";
                                                 }
-                                                echo '
-                                                <tr>
-                                                    <td><input type="checkbox" name="chk_delete_subjectteacher[]" class="chk_delete chk_delete_subjectteacher" value="'.$row['subjectteacherid'].'" /></td>
-                                                    <td>'.$row['subjectname'].'</td>
-                                                    <td>'.$row['tname'].'</td>
-                                                    <td style="white-space: nowrap"><button class="btn btn-primary btn-sm" data-target="#editModal'.$row['id'].'" data-toggle="modal"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></td>
-                                                </tr>
-                                                ';
-                                                
+                                                if(!isset($row['classid']) or $row['classid'] == $val) {
+                                                    echo '
+                                                    <tr>
+                                                        <td><input type="checkbox" name="chk_delete_subjectteacher[]" class="chk_delete chk_delete_subjectteacher" value="'.$row['subjectteacherid'].'" /></td>
+                                                        <td>'.$row['subjectname'].'</td>
+                                                        <td>'.$row['tname'].'</td>
+                                                        <td style="white-space: nowrap"><button class="btn btn-primary btn-sm" data-target="#editModal'.$row['subjectid'].'" data-toggle="modal"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></td>
+                                                    </tr>
+                                                    ';
+                                                }
                                                 include "editModalClassManage.php";
                                             }
                                             ?>

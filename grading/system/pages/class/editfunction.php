@@ -24,17 +24,28 @@
 		$subjectid = $_POST['subjectid'];
 		$yearlevelid = $_POST['yearlevelid'];
 		$classid = $_POST['classid'];
+		$schoolyear = $_POST['schoolyear'];
 	    $teacherid = $_POST['ddl_edit_teacher'];
+	    $method = $_POST['edit_or_new'];
 
-	    $query = mysqli_query($con,"SELECT * from tblsubjectteacher WHERE subjectid = ".$subjectid." AND yearlevelid=".$yearlevelid." AND classid=".$classid);
+	    //get all yearlevel.id, class.id, subject.id with the same yearlevel
+	    $query = mysqli_query($con,"SELECT tblyearlevel.id as tblyearlevelid, tblclass.id as tblclassid, tblsubjects.id as subjectid from tblyearlevel left join tblclass on tblclass.yearlevelid = tblyearlevel.id left join tblschoolyear on tblschoolyear.id = tblclass.schoolyearid left join tblsubjects on tblsubjects.yearlevelid = tblyearlevel.id where yearlevel = (SELECT yearlevel FROM tblyearlevel WHERE id=".$yearlevelid." LIMIT 1) and tblschoolyear.schoolyear = '".$schoolyear."' and tblsubjects.subjectname = (select subjectname from tblsubjects where id = ".$subjectid." limit 1)");
 
-	    $ct = mysqli_num_rows($query);
+	    if($method == "No teacher set") {
+		    while($row = mysqli_fetch_array($query)) {
+		    	mysqli_query($con,"INSERT INTO tblsubjectteacher(teacherid, subjectid, yearlevelid, classid) VALUES (".$teacherid.",".$row['subjectid'].",".$row['tblyearlevelid'].",".$row['tblclassid'].")");
+		    }
+		} else {
+			while($row = mysqli_fetch_array($query)) {
+				mysqli_query($con,"UPDATE tblsubjectteacher SET teacherid = ".$teacherid." WHERE subjectid = ".$row['subjectid']." AND yearlevelid=".$row['tblyearlevelid']." AND classid=".$row['tblclassid']);
+			}
+		}
 
-	    if($ct == 0) {
-	    	$query = mysqli_query($con,"INSERT INTO tblsubjectteacher(teacherid, subjectid, yearlevelid, classid) VALUES (".$teacherid.",".$subjectid.",".$yearlevelid.",".$classid.")");
-	    } else {
-	    	$query = mysqli_query($con,"UPDATE tblsubjectteacher SET teacherid = ".$teacherid." WHERE subjectid = ".$subjectid." AND yearlevelid=".$yearlevelid." AND classid=".$classid);
-	    }
+	    // if($ct == 0) {
+	    	// $query = mysqli_query($con,"INSERT INTO tblsubjectteacher(teacherid, subjectid, yearlevelid, classid) VALUES (".$teacherid.",".$subjectid.",".$yearlevelid.",".$classid.")");
+	    // } else {
+	    // 	$query = mysqli_query($con,"UPDATE tblsubjectteacher SET teacherid = ".$teacherid." WHERE subjectid = ".$subjectid." AND yearlevelid=".$yearlevelid." AND classid=".$classid);
+	    // }
 
 	    
 

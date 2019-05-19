@@ -1,6 +1,6 @@
 
 <!-- ========= CLASS MODAL ======== -->
-<?php echo '<div id="editModal'.$row['id'].'" class="modal fade">
+<?php echo '<div id="editModal'.$row['subjectid'].'" class="modal fade">
 <form method="post">
   <div class="modal-dialog modal-sm" style="width:300px !important;">
     <div class="modal-content">
@@ -14,6 +14,8 @@
                 <input type="hidden" value="'.$row['subjectid'].'" name="subjectid" />
                 <input type="hidden" value="'.$yearlevelid.'" name="yearlevelid" />
                 <input type="hidden" value="'.$classid.'" name="classid" />
+                <input type="hidden" value="'.$schoolyear.'" name="schoolyear" />
+                <input type="hidden" value="'.$row['tname'].'" name="edit_or_new" />
                 <div class="form-group">
                     <label>Teacher:</label>
                     <select name="ddl_edit_teacher" id="ddl_edit_teacher" data-style="btn-primary" class="form-control input-sm">';
