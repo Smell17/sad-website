@@ -40,6 +40,12 @@
                     <!-- sidebar menu: : style can be found in sidebar.less -->
                     <ul class="sidebar-menu">';
                         if($_SESSION['role'] == "Administrator"){
+
+                            $query = mysqli_query($con,"SELECT classid from tblteacheradvisory WHERE teacherid =".$_SESSION['userid'].' LIMIT 1');
+                            while($row = mysqli_fetch_array($query)) {
+                                $classid = $row['classid'];
+                            }
+
                             echo '
                             <li>
                                 <a href="../dashboard/dashboard.php">
@@ -82,7 +88,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="../class/class.php">
+                                <a href="../class/class-manage.php?classid='.$classid.'">
                                     <i class="fa fa-book"></i> <span>Class</span>
                                 </a>
                             </li>

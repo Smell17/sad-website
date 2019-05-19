@@ -56,7 +56,7 @@
                                 </div><!-- /.box-header -->
                                 <div class="box-body table-responsive">
                                 <form method="post">
-                                    <table id="table" class="table table-bordered table-striped">
+                                    <table id="" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
                                                 <th>Subject Name</th>

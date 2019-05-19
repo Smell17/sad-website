@@ -344,6 +344,7 @@ session_start();
 <?php 
  include "pages/connection.php"; 
  ?>
+ <?php include "pages/notification.php"; ?>
 
     </body>
 </html>

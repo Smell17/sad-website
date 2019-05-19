@@ -2,19 +2,32 @@
 <html>
     <?php include('../head_css.php'); ?>
     <body class="skin-black">
+        
         <!-- header logo: style can be found in header.less -->
         <?php 
         ob_start();
         include "../connection.php";
         ?>
         <?php include('../header.php'); ?>
+        <?php 
+            if(isset($_GET["classid"])) {
+                $val = $_GET["classid"];     
+            } else {$val = null;}
+        
+        ?>
+
 
         <div class="wrapper row-offcanvas row-offcanvas-left">
             <!-- Left side column. contains the logo and sidebar -->
             <?php include('../sidebar-left.php'); ?>
-
+            
+            <?php if($val == null) {
+                 echo "<h2 style='position:absolute;top:50%;left:50%;'>No advisory class</h2>";
+                }
+                else {
+            ?>
             <!-- Right side column. Contains the navbar and content of the page -->
-            <?php $val = $_GET["classid"];
+            <?php 
                 $squery = mysqli_query($con, "SELECT *,CONCAT(t.lname, ', ', t.fname, ' ',t.mname) as tname, tblclass.id as classid, tblschoolyear.id as schoolyearid FROM tblclass left join tblschoolyear on tblschoolyear.id = tblclass.schoolyearid left join tblteacheradvisory on tblteacheradvisory.classid = tblclass.id left join tblteacher t on t.id = tblteacheradvisory.teacherid left join tblyearlevel on tblclass.yearlevelid = tblyearlevel.id WHERE tblclass.id = ".$val." LIMIT 1");
                 while($row = mysqli_fetch_array($squery))
                 {
@@ -151,6 +164,7 @@
                     </div>   <!-- /.row -->
                 </section><!-- /.content -->
             </aside><!-- /.right-side -->
+            <?php }?>
         </div><!-- ./wrapper -->
         <!-- jQuery 2.0.2 -->
         <?php include "../footer.php"; ?>
