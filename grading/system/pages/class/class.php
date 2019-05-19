@@ -60,7 +60,7 @@
                                                     <td>'.$row['yearlevel']." - ".$row['classname'].'</td>
                                                     <td>'.$row['schoolyear'].'</td>
                                                     <td>'.$row['tname'].'</td>
-                                                    <td style="white-space: nowrap"><button class="btn btn-primary btn-sm" data-target="#editModal'.$row['cid'].'" data-toggle="modal"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button> <a href="../class/class-manage.php?classid='.$row['cid'].'" class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Manage Students</a></td>
+                                                    <td style="white-space: nowrap"><button class="btn btn-primary btn-sm" data-target="#editModal'.$row['cid'].'" data-toggle="modal"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button> <a href="../class/class-manage.php?classid='.$row['cid'].'" class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Manage</a></td>
                                                 </tr>
                                                 ';
                                                 

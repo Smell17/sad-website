@@ -1,5 +1,5 @@
-<!-- ===== DELETE MODAL ==== -->
-<div id="deleteModal" class="modal fade">
+
+<div id="deleteSubjectTeacherModal" class="modal fade">
   <div class="modal-dialog">
     <div class="modal-content">
         <div class="modal-header">
@@ -7,14 +7,13 @@
             <h4 class="modal-title">Delete Confirmation</h4>
         </div>
         <div class="modal-body">
-            <p>Are you sure you want to delete selected data below?</p>
+            <p>Are you sure you want to remove selected subject teacher assignments?</p>
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">No</button>
-            <input type="submit" class="btn btn-primary btn-sm" name="btn_delete_classmanage" id="btn_delete" value="Yes"/>
+            <input type="hidden" name="classid" value="<?php echo $val; ?>">
+            <input type="submit" class="btn btn-primary btn-sm" name="btn_delete_classmanage_subjectteacher" id="btn_delete_classmanage" value="Yes"/>
         </div>
     </div>
   </div>
 </div>
-
-<!-- ===== END OF DELETE MODAL ===== -->

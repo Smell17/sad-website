@@ -28,6 +28,16 @@
 	    });
 	}
 
+    function checkMainteachers(x) {
+        var checked = $(x).prop('checked');
+        $('.cbxMain').prop('checked', checked)
+        $('tr:visible').each(function () {
+            $(this).find('.chk_delete_subjectteacher').each(function () {
+                this.checked = checked;
+            });
+        });
+    }
+
 	function editsuccess(){
         $('#autoclosable-btn-editsuccess').prop('disabled', true);
         $('.alert-autocloseable-editsuccess').show();

@@ -15,13 +15,15 @@
 
             <!-- Right side column. Contains the navbar and content of the page -->
             <?php $val = $_GET["classid"];
-                $squery = mysqli_query($con, "SELECT *,CONCAT(t.lname, ', ', t.fname, ' ',t.mname) as tname FROM tblclass left join tblschoolyear on tblschoolyear.id = tblclass.schoolyearid left join tblteacheradvisory on tblteacheradvisory.classid = tblclass.id left join tblteacher t on t.id = tblteacheradvisory.teacherid left join tblyearlevel on tblclass.yearlevelid = tblyearlevel.id WHERE tblclass.id = ".$val." LIMIT 1");
+                $squery = mysqli_query($con, "SELECT *,CONCAT(t.lname, ', ', t.fname, ' ',t.mname) as tname, tblclass.id as classid FROM tblclass left join tblschoolyear on tblschoolyear.id = tblclass.schoolyearid left join tblteacheradvisory on tblteacheradvisory.classid = tblclass.id left join tblteacher t on t.id = tblteacheradvisory.teacherid left join tblyearlevel on tblclass.yearlevelid = tblyearlevel.id WHERE tblclass.id = ".$val." LIMIT 1");
                 while($row = mysqli_fetch_array($squery))
                 {
                     $classname = $row['classname'];
+                    $classid = $row['classid'];
                     $schoolyear = $row['schoolyear'];
                     $adviser = $row['tname'];
                     $yearlevel = $row['yearlevel'];
+                    $yearlevelid = $row['yearlevelid'];
                 }
 
             ?>
@@ -41,8 +43,9 @@
                         <!-- left column -->
                             <div class="box">
                                 <div class="box-header">
+
                                     <div style="padding:10px;">
-                                        
+                                        <h4>Student List</h4>
                                         <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addStudentAdvisoryModal"><i class="fa fa-plus" aria-hidden="true"></i> Add Students</button>  
 
                                         <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModal"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button> 
@@ -59,7 +62,6 @@
                                                 <th>Student Name</th>
                                                 <th>Contact</th>
                                                 <th>Address</th>
-                                                <th style="width: 40px !important;">Option</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -73,7 +75,6 @@
                                                     <td>'.$row['sname'].'</td>
                                                     <td>'.$row['contact'].'</td>
                                                     <td>'.$row['address'].'</td>
-                                                    <td><button class="btn btn-primary btn-sm" data-target="#editModal'.$row['id'].'" data-toggle="modal"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></td>
                                                 </tr>
                                                 ';
                                                 
@@ -85,6 +86,51 @@
 
                                     <?php include "deleteModalClassManage.php"; ?>
 
+                                    </form>
+                                </div><!-- /.box-body -->
+                            </div><!-- /.box -->
+                            <div class="box">
+                                <div class="box-header">
+
+                                    <div style="padding:10px;">
+                                        <h4>Subject</h4>   
+                                        <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteSubjectTeacherModal"><i class="fa fa-trash-o" aria-hidden="true"></i> Remove Teacher</button>                              
+                                    </div>                                
+                                </div><!-- /.box-header -->
+                                <div class="box-body table-responsive">
+                                <form method="post">
+                                    <table id="table" class="table table-bordered table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th style="width: 20px !important;"><input type="checkbox" name="chk_delete_subjectteacher[]" class="cbxMain" onchange="checkMainteachers(this)" /></th>
+                                                <th>Subject Name</th>
+                                                <th>Teacher</th>
+                                                <th style="width: 40px !important;">Option</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                            $squery = mysqli_query($con, "select *,CONCAT(tblteacher.lname, ', ', tblteacher.fname, ' ',tblteacher.mname) as tname, tblteacher.id as subjectteacherid, tblsubjects.id as subjectid from tblsubjects left join tblsubjectteacher on tblsubjectteacher.subjectid = tblsubjects.id left join tblteacher on tblteacher.id = tblsubjectteacher.teacherid where tblsubjects.yearlevelid = ".$yearlevelid);
+                                            while($row = mysqli_fetch_array($squery))
+                                            {
+                                                if(is_null($row['tname'])){
+                                                    $row['tname'] = "No teacher set";
+                                                }
+                                                echo '
+                                                <tr>
+                                                    <td><input type="checkbox" name="chk_delete_subjectteacher[]" class="chk_delete chk_delete_subjectteacher" value="'.$row['subjectteacherid'].'" /></td>
+                                                    <td>'.$row['subjectname'].'</td>
+                                                    <td>'.$row['tname'].'</td>
+                                                    <td style="white-space: nowrap"><button class="btn btn-primary btn-sm" data-target="#editModal'.$row['id'].'" data-toggle="modal"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></td>
+                                                </tr>
+                                                ';
+                                                
+                                                include "editModalClassManage.php";
+                                            }
+                                            ?>
+                                        </tbody>
+                                    </table>
+                                    <?php include "deleteModalClassManageTeachers.php"; ?>
                                     </form>
                                 </div><!-- /.box-body -->
                             </div><!-- /.box -->
