@@ -15,12 +15,13 @@
 
             <!-- Right side column. Contains the navbar and content of the page -->
             <?php $val = $_GET["classid"];
-                $squery = mysqli_query($con, "SELECT *,CONCAT(t.lname, ', ', t.fname, ' ',t.mname) as tname, tblclass.id as classid FROM tblclass left join tblschoolyear on tblschoolyear.id = tblclass.schoolyearid left join tblteacheradvisory on tblteacheradvisory.classid = tblclass.id left join tblteacher t on t.id = tblteacheradvisory.teacherid left join tblyearlevel on tblclass.yearlevelid = tblyearlevel.id WHERE tblclass.id = ".$val." LIMIT 1");
+                $squery = mysqli_query($con, "SELECT *,CONCAT(t.lname, ', ', t.fname, ' ',t.mname) as tname, tblclass.id as classid, tblschoolyear.id as schoolyearid FROM tblclass left join tblschoolyear on tblschoolyear.id = tblclass.schoolyearid left join tblteacheradvisory on tblteacheradvisory.classid = tblclass.id left join tblteacher t on t.id = tblteacheradvisory.teacherid left join tblyearlevel on tblclass.yearlevelid = tblyearlevel.id WHERE tblclass.id = ".$val." LIMIT 1");
                 while($row = mysqli_fetch_array($squery))
                 {
                     $classname = $row['classname'];
                     $classid = $row['classid'];
                     $schoolyear = $row['schoolyear'];
+                    $schoolyearid = $row['schoolyearid'];
                     $adviser = $row['tname'];
                     $yearlevel = $row['yearlevel'];
                     $yearlevelid = $row['yearlevelid'];
@@ -62,6 +63,7 @@
                                                 <th>Student Name</th>
                                                 <th>Contact</th>
                                                 <th>Address</th>
+                                                <th style="width: 40px !important;">Option</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -75,6 +77,7 @@
                                                     <td>'.$row['sname'].'</td>
                                                     <td>'.$row['contact'].'</td>
                                                     <td>'.$row['address'].'</td>
+                                                    <td style="white-space: nowrap"><a href="../class/view-grades.php?classid='.$classid.'&schoolyear='.$schoolyearid.'&studentid='.$row['id'].'" class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> View Grades</a></td>
                                                 </tr>
                                                 ';
                                                 
