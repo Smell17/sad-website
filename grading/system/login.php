@@ -269,12 +269,14 @@ session_start();
       $query = mysqli_query($con,"INSERT INTO tblrealadmin (fname,lname,username,password) values ('".$txt_fname."','".$txt_lname."','".$txt_uname."','".$txt_pass."')"); 
       if($query == true){
               $_SESSION['added'] = 1;
-              header ("location: ".$_SERVER['REQUEST_URI']);
+              echo '<script>alert("Account created!");</script>';
+              // header ("location: ".$_SERVER['REQUEST_URI']);
       }
     }
     else{
       $_SESSION['duplicate'] = 1;
-            header ("location: ".$_SERVER['REQUEST_URI']);
+            echo '<script>alert("Duplicate account!");</script>';
+            //header ("location: ".$_SERVER['REQUEST_URI']);
             echo 'registration error';
     }
   }
@@ -299,12 +301,14 @@ session_start();
       $query = mysqli_query($con,"INSERT INTO tblteacher (lname,fname,mname,contact,address,username,password) values ('".$txt_lname."','".$txt_fname."','".$txt_mname."','".$txt_contact."','".$txt_addr."','".$txt_uname."','".$txt_pass."')"); 
       if($query == true){
               $_SESSION['added'] = 1;
-              header ("location: ".$_SERVER['REQUEST_URI']);
+              echo '<script>alert("Account created!");</script>';
+              // header ("location: ".$_SERVER['REQUEST_URI']);
       }
     }
     else{
       $_SESSION['duplicate'] = 1;
-            header ("location: ".$_SERVER['REQUEST_URI']);
+            echo '<script>alert("Duplicate account!");</script>';
+            //header ("location: ".$_SERVER['REQUEST_URI']);
             echo 'registration error';
     }
   }
@@ -327,12 +331,13 @@ session_start();
       $query = mysqli_query($con,"INSERT INTO tbladmin (fname,lname,username,password,email,contact,accounttype) values ('".$txt_fname."','".$txt_lname."','".$txt_uname."','".$txt_pass."', '".$txt_eaddr."', '".$txt_contact."', 'Administrator')"); 
       if($query == true){
               $_SESSION['added'] = 1;
-              header ("location: ".$_SERVER['REQUEST_URI']);
+              echo '<script>alert("Account created!");</script>';
+              // header ("location: ".$_SERVER['REQUEST_URI']);
       }
     }
     else{
       $_SESSION['duplicate'] = 1;
-            header ("location: ".$_SERVER['REQUEST_URI']);
+            echo '<script>alert("Duplicate account!");</script>';
             echo 'registration error';
     }
   }
@@ -345,6 +350,5 @@ session_start();
  include "pages/connection.php"; 
  ?>
  <?php include "pages/notification.php"; ?>
-
     </body>
 </html>
