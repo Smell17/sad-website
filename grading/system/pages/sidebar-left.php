@@ -68,11 +68,6 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="../studentclass/studentclass.php">
-                                    <i class="fa fa-user"></i> <span>Student Class</span>
-                                </a>
-                            </li>
-                            <li>
                                 <a href="../teacher/teacher.php">
                                     <i class="fa fa-user"></i> <span>Teacher</span>
                                 </a>
