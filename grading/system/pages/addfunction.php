@@ -258,26 +258,46 @@
 <!-- =========  ADD STUDENT GRADE  ============== -->
 <?php
 	if(isset($_POST['btn_add_studgrade'])){
-		$ddl_sy = $_POST['ddl_sy'];
-		$ddl_class = $_POST['ddl_class'];
-		$ddl_stud = $_POST['ddl_stud'];
-		$ddl_subj = $_POST['ddl_subj'];
-		$txt_1stgrading = $_POST['txt_1stgrading'];
+		// $ddl_sy = $_POST['ddl_sy'];
+		// $ddl_class = $_POST['ddl_class'];
+		// $ddl_stud = $_POST['ddl_stud'];
+		// $ddl_subj = $_POST['ddl_subj'];
+		// $txt_1stgrading = $_POST['txt_1stgrading'];
 
-		$chk = mysqli_query($con,"SELECT * from tblstudentgrade where studentid = '$ddl_stud' and classid = '$ddl_class' and schoolyearid = '$ddl_sy' and subjectid = '$ddl_subj' ");
-		$ct = mysqli_num_rows($chk);
+		// $chk = mysqli_query($con,"SELECT * from tblstudentgrade where studentid = '$ddl_stud' and classid = '$ddl_class' and schoolyearid = '$ddl_sy' and subjectid = '$ddl_subj' ");
+		// $ct = mysqli_num_rows($chk);
 
-		if($ct == 0)
-		{
-		$query = mysqli_query($con,"INSERT INTO tblstudentgrade (studentid,schoolyearid,subjectid,classid,adviserid,1stgrading) values ('".$ddl_stud."','".$ddl_sy."','".$ddl_subj."','".$ddl_class."','".$_SESSION['userid']."','".$txt_1stgrading."')") or die(mysqli_error($con)); 
-			if($query == true){
-	            $_SESSION['added'] = 1;
-	            header ("location: ".$_SERVER['REQUEST_URI']);
+		// if($ct == 0)
+		// {
+		// $query = mysqli_query($con,"INSERT INTO tblstudentgrade (studentid,schoolyearid,subjectid,classid,adviserid,1stgrading) values ('".$ddl_stud."','".$ddl_sy."','".$ddl_subj."','".$ddl_class."','".$_SESSION['userid']."','".$txt_1stgrading."')") or die(mysqli_error($con)); 
+		// 	if($query == true){
+	 //            $_SESSION['added'] = 1;
+	 //            header ("location: ".$_SERVER['REQUEST_URI']);
+		// 	}
+		// }
+		// else{
+		// 	$_SESSION['duplicate'] = 1;
+  //           header ("location: ".$_SERVER['REQUEST_URI']);
+		// }
+		$schoolyearid = $_POST['schoolyearid'];
+		$subjectid = $_POST['subjectid'];
+		$classid = $_POST['classid'];
+		$adviserid = $_POST['adviserid'];
+
+		foreach($_POST['grades'] as $key => $studentrow) {
+			$studentid = $key;
+			$chk = mysqli_query($con,"SELECT * from tblstudentgrade where studentid = '$studentid' and classid = '$classid' and schoolyearid = '$schoolyearid' and subjectid = '$subjectid' ");
+			if(mysqli_num_rows($chk)>0) {
+				// grade record exists
+				$query = mysqli_query($con,"UPDATE tblstudentgrade SET 1stgrading = ".$studentrow['1stgrading'].", 2ndgrading =".$studentrow['2ndgrading'].",3rdgrading=".$studentrow['3rdgrading'].",4thgrading=".$studentrow['4thgrading']." WHERE studentid = '$studentid' and classid = '$classid' and schoolyearid = '$schoolyearid' and subjectid = '$subjectid' ") or die(mysqli_error($con));
+			} else {
+				// grade record does not exist
+				$query = mysqli_query($con,"INSERT INTO tblstudentgrade (studentid,schoolyearid,subjectid,classid,adviserid,1stgrading,2ndgrading,3rdgrading,4thgrading) values ('".$studentid."','".$schoolyearid."','".$subjectid."','".$classid."','".$adviserid."','".$studentrow["1stgrading"]."','".$studentrow["2ndgrading"]."','".$studentrow["3rdgrading"]."','".$studentrow["4thgrading"]."')") or die(mysqli_error($con));
 			}
+
 		}
-		else{
-			$_SESSION['duplicate'] = 1;
-            header ("location: ".$_SERVER['REQUEST_URI']);
-		}
+        $_SESSION['added'] = 1;
+        header ("location: ".$_SERVER['REQUEST_URI']);
+
 	}
 ?>

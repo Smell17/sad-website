@@ -431,6 +431,18 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="form-group">
+                        <label>Class:</label>
+                        <select name="ddl_class" id="ddl_class" data-style="btn-primary" class="form-control input-sm">
+                            <option selected disabled>-- Select Class --</option>
+                            <?php
+                                $q = mysqli_query($con,"SELECT tblclass.*, tblschoolyear.schoolyear as schoolyear, tblyearlevel.yearlevel as yearlevel from tblclass left join tblschoolyear on tblclass.schoolyearid = tblschoolyear.id left join tblyearlevel on tblclass.yearlevelid = tblyearlevel.id where tblclass.id not in (select classid from tblteacheradvisory) order by schoolyear desc, yearlevel");
+                                while($row=mysqli_fetch_array($q)){
+                                    echo '<option value="'.$row['id'].'">'.$row['schoolyear'].": " .$row['yearlevel'] . " - " . $row['classname'].'</option>';
+                                }
+                            ?>
+                        </select>
+                    </div>
+                    <div class="form-group">
                         <label>Teacher:</label>
                         <select name="ddl_teacher" id="ddl_teacher" data-style="btn-primary" class="form-control input-sm">
                             <option selected disabled>-- Select Teacher --</option>
@@ -442,18 +454,7 @@
                             ?>
                         </select>
                     </div>
-                    <div class="form-group">
-                        <label>Class:</label>
-                        <select name="ddl_class" id="ddl_class" data-style="btn-primary" class="form-control input-sm">
-                            <option selected disabled>-- Select Class --</option>
-                            <?php
-                                $q = mysqli_query($con,"SELECT tblclass.*, tblschoolyear.schoolyear as schoolyear, tblyearlevel.yearlevel as yearlevel from tblclass left join tblschoolyear on tblclass.schoolyearid = tblschoolyear.id left join tblyearlevel on tblclass.yearlevelid = tblyearlevel.id where tblclass.id not in (select classid from tblteacheradvisory) order by schoolyear, yearlevel");
-                                while($row=mysqli_fetch_array($q)){
-                                    echo '<option value="'.$row['id'].'">'.$row['schoolyear'].": " .$row['yearlevel'] . " - " . $row['classname'].'</option>';
-                                }
-                            ?>
-                        </select>
-                    </div>
+                    
                     <!-- <div class="form-group">
                         <label>Subject:</label>
                         <select name="ddl_subj" id="ddl_subj" data-style="btn-primary" class="form-control input-sm">

@@ -18,7 +18,7 @@
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>
-                        View Grade
+                        Classes
                     </h1>
                 </section>
 
@@ -29,73 +29,40 @@
                             <div class="box">
                                 <div class="box-header">
                                     <div style="padding:10px;">
-                                        
-                                        <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addStudGradeModal"><i class="fa fa-plus" aria-hidden="true"></i> Add Student Grade</button>  
-                                        
-                                        <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModal"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button> 
-
                                     </div>                                
                                 </div><!-- /.box-header -->
                                 <div class="box-body table-responsive">
-                                <form method="post">
                                     <table id="table" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
-                                                <th style="width: 20px !important;"><input type="checkbox" name="chk_delete[]" class="cbxMain" onchange="checkMain(this)" /></th>
                                                 <th>School Year</th>
                                                 <th>Class</th>
                                                 <th>Subject</th>
-                                                <th>Student</th>
-                                                <th>1st</th>
-                                                <th>2nd</th>
-                                                <th>3rd</th>
-                                                <th>4th</th>
-                                                <th>Average</th>
-                                                <th>Remarks</th>
                                                 <th style="width: 40px !important;">Option</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <?php
-                                            $squery = mysqli_query($con, "SELECT *,sg.id as sgid, CONCAT(t.lname, ', ', t.fname, ' ', t.mname)  as tname, CONCAT(s.lname, ', ', s.fname, ' ', s.mname)  as sname
-                                                                        FROM tblstudentgrade sg
-                                                                        LEFT JOIN tblstudentclass sc ON sg.classid = sc.classid
-                                                                        AND sg.studentid = sc.studentid
-                                                                        AND sg.subjectid = sc.subjectid
-                                                                        LEFT JOIN tblstudent s ON sg.studentid = s.id
-                                                                        LEFT JOIN tblteacheradvisory ta ON sg.classid = ta.classid
-                                                                        LEFT JOIN tblteacher t ON sg.adviserid = t.id
-                                                                        LEFT JOIN tblclass c ON sg.classid = c.id
-                                                                        LEFT JOIN tblschoolyear sy ON sg.schoolyearid = sy.id
-                                                                        LEFT JOIN tblsubjects sb on sg.subjectid = sb.id
-                                                                        where sg.adviserid = '".$_SESSION['userid']."' ");
-                                            while($row = mysqli_fetch_array($squery))
-                                            {
-                                                echo '
-                                                <tr>
-                                                    <td><input type="checkbox" name="chk_delete[]" class="chk_delete" value="'.$row['sgid'].'" /></td>
-                                                    <td>'.$row['schoolyear'].'</td>
-                                                    <td>'.$row['classname'].'</td>
-                                                    <td>'.$row['subjectname'].' - '.$row['description'].'</td>
-                                                    <td>'.$row['sname'].'</td>
-                                                    <td>'.$row['1stgrading'].'</td>
-                                                    <td>'.$row['2ndgrading'].'</td>
-                                                    <td>'.$row['3rdgrading'].'</td>
-                                                    <td>'.$row['4thgrading'].'</td>
-                                                    <td><b>'.$row['gradeaverage'].'</b></td>
-                                                    <td>'.($row['remarks'] == "Passed" ? "<label style='color:green'>".$row['remarks']."</label>" : (($row['remarks'] == "Failed") ? "<label style='color:red'>".$row['remarks']."</label>" : "<label style='color:black'>No Final Remarks</label>")) .'</td>
-                                                    <td><button class="btn btn-primary btn-sm" data-target="#editModal'.$row['sgid'].'" data-toggle="modal"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></td>
-                                                </tr>
-                                                ';
-                                                include "editModal.php"; 
-                                            }
+                                            <?php $squery = mysqli_query($con, "SELECT tblschoolyear.schoolyear as schoolyear, tblsubjects.subjectname as subjectname, tblclass.classname as classname, tblsubjectteacher.id as id, tblyearlevel.yearlevel as yearlevel
+                                                from tblsubjectteacher 
+                                                left join tblsubjects on tblsubjectteacher.subjectid = tblsubjects.id 
+                                                left join tblclass on tblclass.id = tblsubjectteacher.classid 
+                                                left join tblschoolyear on tblschoolyear.id = tblclass.schoolyearid
+                                                left join tblyearlevel on tblyearlevel.id = tblclass.yearlevelid
+                                                where tblsubjectteacher.teacherid = ".$_SESSION['userid']."
+                                                order by schoolyear desc, yearlevel, classname, subjectname
+                                                ");
+                                                while($row = mysqli_fetch_array($squery)) {
+                                                    echo '
+                                                    <tr>
+                                                        <td>'.$row['schoolyear'].'</td>
+                                                        <td>'.$row['yearlevel']." - ".$row['classname'].'</td>
+                                                        <td>'.$row['subjectname'].'</td>
+                                                        <td style="white-space: nowrap"><a href="../studgrade/studgrademanage.php?subjectteacherid='.$row['id'].'" class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Manage Grades</a></td>
+                                                    </tr>';
+                                                }
                                             ?>
                                         </tbody>
                                     </table>
-
-
-                                    <?php include "../deleteModal.php"; ?>
-                                    </form>
                                 </div><!-- /.box-body -->
                             </div><!-- /.box -->
 

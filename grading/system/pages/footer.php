@@ -28,6 +28,10 @@
 	    });
 	}
 
+    function disableInputs() {
+        $('.grade-input').removeAttr("disabled");
+    }
+
     function checkMainteachers(x) {
         var checked = $(x).prop('checked');
         $('.cbxMain').prop('checked', checked)

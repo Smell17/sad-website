@@ -17,10 +17,6 @@
                     <input name="txt_edit_sname" id="txt_edit_sname" class="form-control input-sm" type="text" value="'.$row['subjectname'].'" />
                 </div>
                 <div class="form-group">
-                    <label>Description: </label>
-                    <input name="txt_edit_desc" id="txt_edit_desc" class="form-control input-sm" type="text" value="'.$row['description'].'" />
-                </div>
-                <div class="form-group">
                     <label>Year Level:</label>
                     <select name="ddl_edit_yl" id="ddl_edit_yl" data-style="btn-primary" class="form-control input-sm">
                         <option value="'.$row['yid'].'" selected>'.$row['yearlevel'].' - '.$row['description'].'</option>';
