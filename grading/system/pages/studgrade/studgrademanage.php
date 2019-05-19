@@ -78,13 +78,33 @@
                                             <input type="hidden" name="adviserid" value="<?php echo $adviserid;?>">
                                             <?php
                                             $squery = mysqli_query($con, "
-                                                SELECT *, CONCAT(tblstudent.lname, ', ', tblstudent.fname, ', ', tblstudent.mname) as sname, tblstudent.id as studentid,COALESCE((1stgrading+2ndgrading+3rdgrading+4thgrading)/((1stgrading!=0) + (2ndgrading!=0) + (3rdgrading!=0) + (4thgrading!=0)),0) avg from tblstudent
+                                                SELECT *, CONCAT(tblstudent.lname, ', ', tblstudent.fname, ', ', tblstudent.mname) as sname, tblstudent.id as studentid,round(COALESCE((1stgrading+2ndgrading+3rdgrading+4thgrading)/((1stgrading!=0) + (2ndgrading!=0) + (3rdgrading!=0) + (4thgrading!=0)),0),0) avg from tblstudent
                                                 left join tblstudentadvisory on tblstudentadvisory.studentid = tblstudent.id
                                                 left join tblstudentgrade on tblstudentgrade.studentid = tblstudent.id and tblstudentgrade.classid = tblstudentadvisory.classid
                                                 where tblstudentadvisory.classid = ".$classid. "
                                                 order by sname");
                                             while($row = mysqli_fetch_array($squery))
                                             {
+                                                switch($row['avg']) {
+                                                    case 0:
+                                                        $remarks = "";
+                                                        break;
+                                                    case in_array($row['avg'], range(0,78)):
+                                                        $remarks = "NI - Needs Improvement";
+                                                        break;
+                                                    case in_array($row['avg'], range(79,82)):
+                                                        $remarks = "MS - Moderately Satisfactory";
+                                                        break;
+                                                    case in_array($row['avg'], range(83,87)):
+                                                        $remarks = "S - Satisfactory";
+                                                        break;
+                                                    case in_array($row['avg'], range(88,92)):
+                                                        $remarks = "HS - Highly Satisfactory";
+                                                        break;
+                                                    case ($row['avg']>=93):
+                                                        $remarks = "O - Outstanding";
+                                                        break;
+                                                }
                                                 echo '
                                                 <tr>
                                                     <td>'.$row['sname'].'</td>
@@ -92,8 +112,8 @@
                                                     <td><input type="number" class="grade-input" style="width:40px;" name="grades['.$row["studentid"].'][2ndgrading]" disabled value="'.$row['2ndgrading'].'" min="0" max="100"></td>
                                                     <td><input type="number" class="grade-input" style="width:40px;" name="grades['.$row["studentid"].'][3rdgrading]" disabled value="'.$row['3rdgrading'].'" min="0" max="100"></td>
                                                     <td><input type="number" class="grade-input" style="width:40px;" name="grades['.$row["studentid"].'][4thgrading]" disabled value="'.$row['4thgrading'].'" min="0" max="100"></td>
-                                                    <td><b>'.number_format($row['avg'], 2, '.', '').'</b></td>
-                                                    <td>'.($row['remarks'] == "Passed" ? "<label style='color:green'>".$row['remarks']."</label>" : (($row['remarks'] == "Failed") ? "<label style='color:red'>".$row['remarks']."</label>" : "<label style='color:black'>No Final Remarks</label>")) .'</td>
+                                                    <td><b>'.$row['avg'].'</b></td>
+                                                    <td>'.$remarks.'</td>
                                                 </tr>
                                                 ';
                                                 // include "editModal.php"; 

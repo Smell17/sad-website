@@ -65,6 +65,7 @@
                                                 <th>Q3</th>
                                                 <th>Q4</th>
                                                 <th>Average</th>
+                                                <th>Remarks</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -77,7 +78,7 @@
                                                 }
                                                 if(!isset($row['classid']) or $row['classid'] == $val) {
                                                     $gquery = mysqli_query($con, "
-                                                    SELECT 1stgrading, 2ndgrading, 3rdgrading, 4thgrading, COALESCE((1stgrading+2ndgrading+3rdgrading+4thgrading)/((1stgrading!=0) + (2ndgrading!=0) + (3rdgrading!=0) + (4thgrading!=0)),0) avg from tblstudentgrade                                                left join tblstudent on tblstudentgrade.studentid = tblstudent.id 
+                                                    SELECT 1stgrading, 2ndgrading, 3rdgrading, 4thgrading, round(COALESCE((1stgrading+2ndgrading+3rdgrading+4thgrading)/((1stgrading!=0) + (2ndgrading!=0) + (3rdgrading!=0) + (4thgrading!=0)),0),0) avg from tblstudentgrade                                                left join tblstudent on tblstudentgrade.studentid = tblstudent.id 
                                                     where tblstudentgrade.subjectid = ".$row['subjectid']." and tblstudentgrade.studentid=".$studentid);
                                                     echo '
                                                     <tr>
@@ -85,11 +86,32 @@
                                                         $present = false;
                                                         while ($r = mysqli_fetch_array($gquery)) {
                                                             $present=true;
-                                                            echo '<td>'.$r['1stgrading'].'</td><td>'.$r['2ndgrading'].'</td><td>'.$r['3rdgrading'].'</td><td>'.$r['4thgrading'].'</td><td>'.$r['avg'].'</td>';
+
+                                                            switch($r['avg']) {
+                                                                case 0:
+                                                                    $remarks = "";
+                                                                    break;
+                                                                case in_array($row['avg'], range(0,78)):
+                                                                    $remarks = "NI - Needs Improvement";
+                                                                    break;
+                                                                case in_array($row['avg'], range(79,82)):
+                                                                    $remarks = "MS - Moderately Satisfactory";
+                                                                    break;
+                                                                case in_array($row['avg'], range(83,87)):
+                                                                    $remarks = "S - Satisfactory";
+                                                                    break;
+                                                                case in_array($row['avg'], range(88,92)):
+                                                                    $remarks = "HS - Highly Satisfactory";
+                                                                    break;
+                                                                case ($row['avg']>=93):
+                                                                    $remarks = "O - Outstanding";
+                                                                    break;
+                                                            }
+                                                            echo '<td>'.$r['1stgrading'].'</td><td>'.$r['2ndgrading'].'</td><td>'.$r['3rdgrading'].'</td><td>'.$r['4thgrading'].'</td><td>'.$r['avg'].'</td><td>'.$remarks.'</td>';
                                                         } 
 
                                                         if(!($present)) {
-                                                            echo '<td></td><td></td><td></td><td></td><td></td>';
+                                                            echo '<td></td><td></td><td></td><td></td><td></td><td></td>';
                                                         }
                                                     echo '</tr>
                                                     ';
