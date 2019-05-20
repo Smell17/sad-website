@@ -301,3 +301,83 @@
 
 	}
 ?>
+
+
+<?php
+  if(isset($_POST['update_Q1_deadline'])){
+    $Q1_deadline = date('Y-m-d',strtotime($_POST['Q1deadline']));
+    $Q1_set = $_POST['update_Q1_deadline'];
+
+    if ($Q1_set == "ENABLE") {
+    	$query = mysqli_query($con,"UPDATE tblnotifications SET deadline = CAST('".$Q1_deadline."' AS DATE), is_enabled = 1 WHERE quarter = '1stquarter'"); 
+    } else {
+    	$query = mysqli_query($con,"UPDATE tblnotifications SET deadline = CAST('".$Q1_deadline."' AS DATE), is_enabled = 0 WHERE quarter = '1stquarter'");
+    }
+
+    if($query == true){
+      $_SESSION['added'] = 1;
+      header ("location: ".$_SERVER['REQUEST_URI']);
+    }
+    if(mysqli_error($con)){
+        $_SESSION['duplicate'] = 1;
+        header ("location: ".$_SERVER['REQUEST_URI']);
+    }
+  }
+  if(isset($_POST['update_Q2_deadline'])){
+    $Q2_deadline = date('Y-m-d',strtotime($_POST['Q2deadline']));
+    $Q2_set = $_POST['update_Q2_deadline'];
+
+    if ($Q2_set == "ENABLE") {
+    	$query = mysqli_query($con,"UPDATE tblnotifications SET deadline = CAST('".$Q2_deadline."' AS DATE), is_enabled = 1 WHERE quarter = '2ndquarter'"); 
+    } else {
+    	$query = mysqli_query($con,"UPDATE tblnotifications SET deadline = CAST('".$Q2_deadline."' AS DATE), is_enabled = 0 WHERE quarter = '2ndquarter'");
+    }
+
+    if($query == true){
+      $_SESSION['added'] = 1;
+      header ("location: ".$_SERVER['REQUEST_URI']);
+    }
+    if(mysqli_error($con)){
+        $_SESSION['duplicate'] = 1;
+        header ("location: ".$_SERVER['REQUEST_URI']);
+    }
+  }
+  if(isset($_POST['update_Q3_deadline'])){
+    $Q3_deadline = date('Y-m-d',strtotime($_POST['Q3deadline']));
+    $Q3_set = $_POST['update_Q3_deadline'];
+
+    if ($Q3_set == "ENABLE") {
+    	$query = mysqli_query($con,"UPDATE tblnotifications SET deadline = CAST('".$Q3_deadline."' AS DATE), is_enabled = 1 WHERE quarter = '3rdquarter'"); 
+    } else {
+    	$query = mysqli_query($con,"UPDATE tblnotifications SET deadline = CAST('".$Q3_deadline."' AS DATE), is_enabled = 0 WHERE quarter = '3rdquarter'");
+    }
+
+    if($query == true){
+      $_SESSION['added'] = 1;
+      header ("location: ".$_SERVER['REQUEST_URI']);
+    }
+    if(mysqli_error($con)){
+        $_SESSION['duplicate'] = 1;
+        header ("location: ".$_SERVER['REQUEST_URI']);
+    }
+  }
+  if(isset($_POST['update_Q4_deadline'])){
+    $Q4_deadline = date('Y-m-d',strtotime($_POST['Q4deadline']));
+    $Q4_set = $_POST['update_Q4_deadline'];
+
+    if ($Q4_set == "ENABLE") {
+    	$query = mysqli_query($con,"UPDATE tblnotifications SET deadline = CAST('".$Q4_deadline."' AS DATE), is_enabled = 1 WHERE quarter = '4thquarter'"); 
+    } else {
+    	$query = mysqli_query($con,"UPDATE tblnotifications SET deadline = CAST('".$Q4_deadline."' AS DATE), is_enabled = 0 WHERE quarter = '4thquarter'");
+    }
+
+    if($query == true){
+      $_SESSION['added'] = 1;
+      header ("location: ".$_SERVER['REQUEST_URI']);
+    }
+    if(mysqli_error($con)){
+        $_SESSION['duplicate'] = 1;
+        header ("location: ".$_SERVER['REQUEST_URI']);
+    }
+  }
+?>

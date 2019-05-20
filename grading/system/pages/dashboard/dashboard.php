@@ -74,7 +74,7 @@
     <body class="skin-black">
         <!-- header logo: style can be found in header.less -->
         <?php 
-        
+        ob_start();
         include "../connection.php";
         ?>
         <?php include('../header.php'); ?>
@@ -181,18 +181,125 @@
                                 
                             </div><!-- /.box -->
                     </div>   <!-- /.row -->
+                    <?php
+                      $squery = mysqli_query($con, "select * from tblnotifications;");
+                      while($row = mysqli_fetch_array($squery))
+                      {
+                        switch($row['quarter']) {
+                          case "1stquarter":
+                            $Q1_deadline = $row['deadline'];
+                            $Q1_isenabled = $row['is_enabled'];
+                            break;
+                          case "2ndquarter":
+                            $Q2_deadline = $row['deadline'];
+                            $Q2_isenabled = $row['is_enabled'];
+                            break;
+                          case "3rdquarter":
+                            $Q3_deadline = $row['deadline'];
+                            $Q3_isenabled = $row['is_enabled'];
+                            break;
+                          case "4thquarter":
+                            $Q4_deadline = $row['deadline'];
+                            $Q4_isenabled = $row['is_enabled'];
+                            break;
+                        }
+                      }
+                    ?>
+                    <div class="row">
+                        <div class="col-md-3" >
+                          <div class="info-box" style="padding:10px;<?php if ($Q1_isenabled) echo "background:green;color:white;"; ?>">
+                            <form method="post">
+                              <div class="info-box-text">1st Quarter Deadline</div>
+                              <br>
+                              <div class="input-group date">
+                                <input type="text" class="form-control" name="Q1deadline" value="<?php echo date('m/d/Y',strtotime($Q1_deadline)); ?>" <?php if (!($Q1_isenabled)) echo "required"; ?>><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+                              </div>
+                              <br>
+                              <?php if ($Q1_isenabled) { ?>
+                                <input type="submit" name="update_Q1_deadline" class="btn btn-primary btn-sm" value="DISABLE">
+                              <?php } else { ?>
+                                <input type="submit" name="update_Q1_deadline" class="btn btn-primary btn-sm" value="ENABLE">
+                              <?php }?>
+                            </form>
+                          </div>
+                        </div>
+                        <div class="col-md-3" >
+                          <div class="info-box" style="padding:10px;<?php if ($Q2_isenabled) echo "background:green;color:white;"; ?>">
+                            <form method="post">
+                              <div class="info-box-text">2nd Quarter Deadline</div>
+                              <br>
+                              <div class="input-group date">
+                                <input type="text" class="form-control" name="Q2deadline" value="<?php echo date('m/d/Y',strtotime($Q2_deadline)); ?>" <?php if (!($Q2_isenabled)) echo "required"; ?>><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+                              </div>
+                              <br>
+                              <?php if ($Q2_isenabled) { ?>
+                                <input type="submit" name="update_Q2_deadline" class="btn btn-primary btn-sm" value="DISABLE">
+                              <?php } else { ?>
+                                <input type="submit" name="update_Q2_deadline" class="btn btn-primary btn-sm" value="ENABLE">
+                              <?php }?>
+                            </form>
+                          </div>
+                        </div>
+
+                        <div class="col-md-3" >
+                          <div class="info-box" style="padding:10px;<?php if ($Q3_isenabled) echo "background:green;color:white;"; ?>">
+                            <form method="post">
+                              <div class="info-box-text">3rd Quarter Deadline</div>
+                              <br>
+                              <div class="input-group date">
+                                <input type="text" class="form-control" name="Q3deadline" value="<?php echo date('m/d/Y',strtotime($Q3_deadline)); ?>" <?php if (!($Q3_isenabled)) echo "required"; ?>><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+                              </div>
+                              <br>
+                              <?php if ($Q3_isenabled) { ?>
+                                <input type="submit" name="update_Q3_deadline" class="btn btn-primary btn-sm" value="DISABLE">
+                              <?php } else { ?>
+                                <input type="submit" name="update_Q3_deadline" class="btn btn-primary btn-sm" value="ENABLE">
+                              <?php }?>
+                            </form>
+                          </div>
+                        </div>
+                          
+                        <div class="col-md-3" >
+                          <div class="info-box" style="padding:10px;<?php if ($Q4_isenabled) echo "background:green;color:white;"; ?>">
+                            <form method="post">
+                              <div class="info-box-text">4th Quarter Deadline</div>
+                              <br>
+                              <div class="input-group date">
+                                <input type="text" class="form-control" name="Q4deadline" value="<?php echo date('m/d/Y',strtotime($Q4_deadline)); ?>" <?php if (!($Q4_isenabled)) echo "required"; ?>><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+                              </div>
+                              <br>
+                              <?php if ($Q4_isenabled) { ?>
+                                <input type="submit" name="update_Q4_deadline" class="btn btn-primary btn-sm" value="DISABLE">
+                              <?php } else { ?>
+                                <input type="submit" name="update_Q4_deadline" class="btn btn-primary btn-sm" value="ENABLE">
+                              <?php }?>
+                            </form>
+                          </div>
+                        </div>
+                        
+                    </div>
                 </section><!-- /.content -->
             </aside><!-- /.right-side -->
         </div><!-- ./wrapper -->
         <!-- jQuery 2.0.2 -->
+
         <?php 
-        include "../footer.php"; ?>
-<script type="text/javascript">
-    $(function() {
-        $("#table").dataTable({
-           "aoColumnDefs": [ { "bSortable": false, "aTargets": [ 0,5 ] } ],"aaSorting": []
-        });
-    });
-</script>
+        include "../footer.php"; 
+        include "../addfunction.php";
+        ?>
+        <script type="text/javascript">
+            $(function() {
+                $("#table").dataTable({
+                   "aoColumnDefs": [ { "bSortable": false, "aTargets": [ 0,5 ] } ],"aaSorting": []
+                });
+                $('.input-group.date').datepicker({
+                    todayBtn: "linked"
+                });
+            });
+        </script>
+        
+        
+
+
     </body>
 </html>

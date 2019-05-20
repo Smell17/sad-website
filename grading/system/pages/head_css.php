@@ -14,4 +14,6 @@
 
     <link href="../../css/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
     <script src="../../js/jquery-1.12.3.js" type="text/javascript"></script>
+    <script src="../../js/datepicker.min.js" type="text/javascript"></script>
+    <link href="../../css/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css" />
 </head>

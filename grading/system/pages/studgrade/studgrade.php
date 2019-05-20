@@ -29,6 +29,27 @@
                             <div class="box">
                                 <div class="box-header">
                                     <div style="padding:10px;">
+                                        <?php
+                                        $squery = mysqli_query($con, "SELECT *,DATEDIFF(deadline, CURDATE()) as diff, DATE_FORMAT(deadline, '%W, %M %d, %Y') as date_formatted FROM tblnotifications where is_enabled=1 order by quarter");
+                                        while($row = mysqli_fetch_array($squery))
+                                        {
+                                            switch($row['diff']) {
+                                                case 0:
+                                                    echo '<div class="alert alert-danger" role="alert">'.$row['quarter'].' deadline: <b>TODAY</b> ('.$row['date_formatted'].')</div>';
+                                                    break;
+                                                case in_array($row['diff'], range(1,3)):
+                                                    echo '<div class="alert alert-warning" role="alert">'.$row['quarter'].' deadline: <b>'.$row['diff'].'</b> day/s from now ('.$row['date_formatted'].')</div>';
+                                                    break;
+                                                case $row['diff']>3:
+                                                    echo '<div class="alert alert-success" role="alert">'.$row['quarter'].' deadline: <b>'.$row['diff'].'</b> day/s from now ('.$row['date_formatted'].')</div>';
+                                                    break;
+                                                
+                                                case $row['diff']<0:
+                                                    echo '<div class="alert alert-danger" role="alert">'.$row['quarter'].' deadline: <b>OVERDUE ('.abs($row['diff']).' day/s late; '.$row['date_formatted'].')</b></div>';
+                                                    break;
+                                            }
+                                        }
+                                        ?>
                                     </div>                                
                                 </div><!-- /.box-header -->
                                 <div class="box-body table-responsive">
