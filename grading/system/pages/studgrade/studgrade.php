@@ -35,17 +35,17 @@
                                         {
                                             switch($row['diff']) {
                                                 case 0:
-                                                    echo '<div class="alert alert-danger" role="alert">'.$row['quarter'].' deadline: <b>TODAY</b> ('.$row['date_formatted'].')</div>';
+                                                    echo '<div class="alert alert-danger" role="alert">'.$row['quarter'].' Deadline: <b>TODAY</b> ('.$row['date_formatted'].')</div>';
                                                     break;
                                                 case in_array($row['diff'], range(1,3)):
-                                                    echo '<div class="alert alert-warning" role="alert">'.$row['quarter'].' deadline: <b>'.$row['diff'].'</b> day/s from now ('.$row['date_formatted'].')</div>';
+                                                    echo '<div class="alert alert-warning" role="alert">'.$row['quarter'].' Deadline: <b>'.$row['diff'].'</b> day/s from now ('.$row['date_formatted'].')</div>';
                                                     break;
                                                 case $row['diff']>3:
-                                                    echo '<div class="alert alert-success" role="alert">'.$row['quarter'].' deadline: <b>'.$row['diff'].'</b> day/s from now ('.$row['date_formatted'].')</div>';
+                                                    echo '<div class="alert alert-success" role="alert">'.$row['quarter'].' Deadline: <b>'.$row['diff'].'</b> day/s from now ('.$row['date_formatted'].')</div>';
                                                     break;
                                                 
                                                 case $row['diff']<0:
-                                                    echo '<div class="alert alert-danger" role="alert">'.$row['quarter'].' deadline: <b>OVERDUE ('.abs($row['diff']).' day/s late; '.$row['date_formatted'].')</b></div>';
+                                                    echo '<div class="alert alert-danger" role="alert">'.$row['quarter'].' Deadline: <b>OVERDUE ('.abs($row['diff']).' day/s late; '.$row['date_formatted'].')</b></div>';
                                                     break;
                                             }
                                         }

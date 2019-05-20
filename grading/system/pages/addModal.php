@@ -64,7 +64,7 @@
         </div>
         <div class="modal-footer">
             <input type="button" class="btn btn-default btn-sm" data-dismiss="modal" value="Cancel"/>
-            <input type="submit" class="btn btn-primary btn-sm" id="btn_add" name="btn_add_yl" value="Add Year Level"/>
+            <input type="submit" class="btn btn-primary btn-sm" id="btn_add" name="btn_add_yl" value="Add Grade Level"/>
         </div>
     </div>
   </div>

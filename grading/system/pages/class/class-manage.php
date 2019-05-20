@@ -46,7 +46,7 @@
                 <section class="content-header">
                     <a href="../class/class.php">< Back to classes</a><br><br>
                     <h1>
-                        <?php echo $yearlevel . ' - ' . $classname . " (School year " . $schoolyear . ")"; ?>
+                        <?php echo $yearlevel . ' - ' . $classname . " (School Year " . $schoolyear . ")"; ?>
                     </h1>
                     <h4>Class adviser: <?php echo $adviser; ?></h4>
                 </section>

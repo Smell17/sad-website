@@ -1,7 +1,7 @@
   <?php
   session_start();
    echo  '<header class="header">
-            <a href="#" class="logo">
+            <a href="../dashboard/dashboard.php" class="logo">
                 <img src = "ttai.png" height="70" width="70">
             </a>
             <!-- Header Navbar: style can be found in header.less -->
