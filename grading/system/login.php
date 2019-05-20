@@ -17,13 +17,14 @@ session_start();
 
     </head>
 
-    <body class="skin-black">
-        <img src='smoothlogo.png'/>
-        <div class="container" style="margin-top:30px">
+    <body class="skin-black" style = "background-color: #C3DFC4;">
+        
+        <div class="container" style="margin-top:30px;">
           <div class="col-md-4 col-md-offset-4">
-              <div class="panel panel-default">
-            <div class="panel-heading"><h3 class="panel-title"><strong></strong></h3></div>
+              <div class="panel panel-default" style="background-color: #E4E9E4;">
+            <div class="panel-heading" style ="background-color: #285C2D; color: white;" ><h3 class="panel-title"><strong><center>ONLINE GRADING SYSTEM</center></strong></h3></div>
             <div class="panel-body">
+              <img src='ttai.png' style = "display: block; margin-left: auto; margin-right: auto;"/>
               <form role="form" method="post">
                 <div class="form-group">
                   <label for="txt_username">Username</label>
@@ -33,7 +34,13 @@ session_start();
                   <label for="txt_password">Password</label>
                   <input type="password" class="form-control" style="border-radius:0px" name="txt_password" placeholder="Enter Password">
                 </div>
-                <button type="submit" class="btn btn-sm btn-primary" style="text-align: center" name="btn_login">Log in</button>
+                <center><button type="submit" class="btn btn-sm btn-primary" style="text-align: center" name="btn_login">Log in</button></center>
+                <br>
+                <div class = "form-group">
+                <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addTeacherModal"><i class="fa fa-plus" aria-hidden="true"></i>Register as Teacher</button> 
+                  <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addRealAdmin"><i class="fa fa-plus" aria-hidden="true"></i>Register as Admin</button>
+                  <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addCAModal"><i class="fa fa-plus" aria-hidden="true"></i>Register as Class Adviser</button>
+                  </div>
               </form>
             </div>
           </div>
@@ -42,8 +49,7 @@ session_start();
 
 
 <div style="padding:10px;">
-                                        
-    <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addTeacherModal"><i class="fa fa-plus" aria-hidden="true"></i>Register as Subject Teacher</button>   
+                                          
 
 <div id="addTeacherModal" class="modal fade">
 <form method="post">
@@ -102,8 +108,7 @@ session_start();
 
 
 <div style="padding:10px;">
-                                        
-    <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addRealAdmin"><i class="fa fa-plus" aria-hidden="true"></i>Register as Admin</button>   
+                                           
 
 <div id="addRealAdmin" class="modal fade">
 <form method="post">
@@ -149,8 +154,7 @@ session_start();
 
 
 <div style="padding:10px;">
-                                        
-    <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addCAModal"><i class="fa fa-plus" aria-hidden="true"></i>Register as Class Adviser</button>   
+                                           
 
 <div id="addCAModal" class="modal fade">
 <form method="post">
