@@ -90,10 +90,12 @@
                         <label>Subject Name:</label>
                         <input required name="txt_sname" id="txt_sname" class="form-control input-sm" type="text" placeholder="Subject Name" />
                     </div>
+                    <!--
                     <div class="form-group">
                         <label>Description:</label>
                         <input required name="txt_desc" id="txt_desc" class="form-control input-sm" type="text" placeholder="Description" />
                     </div>
+                -->
                     <div class="form-group">
                         <label>Grade Level:</label>
                         <select name="ddl_yl" id="ddl_yl" data-style="btn-primary" class="form-control input-sm">
