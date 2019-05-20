@@ -25,7 +25,7 @@
                                     $user = mysqli_query($con,"SELECT * from tbladmin where id = '".$_SESSION['userid']."' ");
                                     while($row = mysqli_fetch_array($user)){
                                         $_SESSION['user'] = $row['accounttype'];
-                                        echo'<span>'.$row['accounttype'].'<i class="caret"></i></span>';
+                                        echo'<span>'.$row['fname'].' '.$row['lname'].'<i class="caret"></i></span>';
                                     }
                                 }
                                 elseif($_SESSION['role'] == "Teacher"){

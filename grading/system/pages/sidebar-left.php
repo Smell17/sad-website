@@ -15,7 +15,7 @@
                                     $user = mysqli_query($con,"SELECT * from tbladmin where id = '".$_SESSION['userid']."' ");
                                     while($row = mysqli_fetch_array($user)){
                                         $_SESSION['user'] = $row['accounttype'];
-                                        echo $row['accounttype'];
+                                        echo $row['fname'].' '.$row['lname'];
                                     }
                                 }
                                 elseif($_SESSION['role'] == "Teacher"){
@@ -84,7 +84,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="../class/class-manage.php?classid='.$classid.'">
+                                <a href="../class/class.php">
                                     <i class="fa fa-book"></i> <span>Class</span>
                                 </a>
                             </li>
