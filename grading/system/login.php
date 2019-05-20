@@ -36,11 +36,6 @@ session_start();
                 </div>
                 <center><button type="submit" class="btn btn-sm btn-primary" style="text-align: center" name="btn_login">Log in</button></center>
                 <br>
-                <div class = "form-group">
-                <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addTeacherModal"><i class="fa fa-plus" aria-hidden="true"></i>Register as Teacher</button> 
-                  <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addRealAdmin"><i class="fa fa-plus" aria-hidden="true"></i>Register as Admin</button>
-                  <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addCAModal"><i class="fa fa-plus" aria-hidden="true"></i>Register as Class Adviser</button>
-                  </div>
               </form>
             </div>
           </div>
@@ -49,7 +44,7 @@ session_start();
 
 
 <div style="padding:10px;">
-                                          
+     <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addTeacherModal"><i class="fa fa-plus" aria-hidden="true"></i>Register as Teacher</button>                                     
 
 <div id="addTeacherModal" class="modal fade">
 <form method="post">
@@ -109,6 +104,7 @@ session_start();
 
 <div style="padding:10px;">
                                            
+<button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addRealAdmin"><i class="fa fa-plus" aria-hidden="true"></i>Register as Admin</button>
 
 <div id="addRealAdmin" class="modal fade">
 <form method="post">
@@ -155,6 +151,7 @@ session_start();
 
 <div style="padding:10px;">
                                            
+                  <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addCAModal"><i class="fa fa-plus" aria-hidden="true"></i>Register as Class Adviser</button>
 
 <div id="addCAModal" class="modal fade">
 <form method="post">
