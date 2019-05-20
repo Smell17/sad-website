@@ -109,6 +109,11 @@
                         elseif($_SESSION['role'] == "Student"){
                             echo '
                             <li>
+                                <a href="../dashboard/dashboard.php">
+                                    <i class="fa  fa-dashboard"></i> <span>Dashboard</span>
+                                </a>
+                            </li>
+                            <li>
                             <a href="../student/student.php">
                                 <i class="fa fa-print"></i> <span>View Student List</span>
                             </a>

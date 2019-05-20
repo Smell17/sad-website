@@ -181,6 +181,8 @@
                                 
                             </div><!-- /.box -->
                     </div>   <!-- /.row -->
+                    <?php 
+                    if ($_SESSION['role'] == "Student") { ?>
                     <?php
                       $squery = mysqli_query($con, "select * from tblnotifications;");
                       while($row = mysqli_fetch_array($squery))
@@ -278,6 +280,7 @@
                         </div>
                         
                     </div>
+                  <?php }?>
                 </section><!-- /.content -->
             </aside><!-- /.right-side -->
         </div><!-- ./wrapper -->
