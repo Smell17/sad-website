@@ -44,7 +44,8 @@ session_start();
 
 
 <div style="padding:10px;">
-     <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addTeacherModal"><i class="fa fa-plus" aria-hidden="true"></i>Register as Teacher</button>                                     
+
+     <center><button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addTeacherModal"><i class="fa fa-plus" aria-hidden="true"></i>Register as Teacher</button></center>                                     
 
 <div id="addTeacherModal" class="modal fade">
 <form method="post">
@@ -104,7 +105,7 @@ session_start();
 
 <div style="padding:10px;">
                                            
-<button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addRealAdmin"><i class="fa fa-plus" aria-hidden="true"></i>Register as Admin</button>
+<center><button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addRealAdmin"><i class="fa fa-plus" aria-hidden="true"></i>Register as Admin</button></center>
 
 <div id="addRealAdmin" class="modal fade">
 <form method="post">
@@ -151,7 +152,7 @@ session_start();
 
 <div style="padding:10px;">
                                            
-                  <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addCAModal"><i class="fa fa-plus" aria-hidden="true"></i>Register as Class Adviser</button>
+                 <center> <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addCAModal"><i class="fa fa-plus" aria-hidden="true"></i>Register as Class Adviser</button> </center>
 
 <div id="addCAModal" class="modal fade">
 <form method="post">
