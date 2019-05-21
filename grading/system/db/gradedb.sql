@@ -529,7 +529,7 @@ ALTER TABLE `tblnotifications`
   
 
 INSERT INTO `tblnotifications` (`quarter`, `deadline`, `is_enabled`) VALUES
-('1stquarter', NULL, 0),
-('2ndquarter', NULL, 0),
-('3rdquarter', NULL, 0),
-('4thquarter', NULL, 0);
+('1st Quarter', NULL, 0),
+('2nd Quarter', NULL, 0),
+('3rd Quarter', NULL, 0),
+('4th Quarter', NULL, 0);

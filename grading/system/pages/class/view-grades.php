@@ -36,7 +36,7 @@
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <a href="../class/class-manage.php?classid=<?php echo $classid; ?>">< Back to class management</a><br><br>
-                    
+                    <a title="print screen" alt="print screen" onclick="window.print();"target="_blank" style="cursor:pointer;">Print this Page</a>
                 </section>
 
                 <!-- Main content -->
@@ -45,7 +45,7 @@
                         <!-- left column -->
                             <div class="box">
                                 <div class="box-header">
-
+                                    <center><img src = "ttai.png" height="100" width="100"></center>
                                     <div style="padding:10px;">
                                         <h1><?php echo $name; ?></h1>
                                         <h4>
