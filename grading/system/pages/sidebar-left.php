@@ -95,15 +95,26 @@
                             </li>';
                         }
                         elseif($_SESSION['role'] == "Teacher"){
+
+                            $query = mysqli_query($con,"SELECT classid from tblteacheradvisory WHERE teacherid =".$_SESSION['userid'].' LIMIT 1');
+                            while($row = mysqli_fetch_array($query)) {
+                                $classid = $row['classid'];
+                            }
+                            
                             echo '
                             <li>
                                 <a href="../student/student.php">
-                                    <i class="fa fa-print"></i> <span>Student</span>
+                                    <i class="fa fa-user"></i> <span>Student</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../class/class-manage.php?classid='.$classid.'">
+                                    <i class="fa fa-print"></i> <span>Advisory Class</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="../studgrade/studgrade.php">
-                                    <i class="fa fa-print"></i> <span>Student Grade</span>
+                                    <i class="fa fa-book"></i> <span>Student Grade (Subject Class)</span>
                                 </a>
                             </li>';
                         }
