@@ -320,7 +320,7 @@
 <!-- ========================= STUDENT ADVISORY MODAL ======================= -->
 <div id="addStudentAdvisoryModal" class="modal fade">
 <form method="post">
-  <div class="modal-dialog modal-sm" style="width:300px !important;">
+  <div class="modal-dialog modal-bg" style="width:300px !important;">
     <div class="modal-content">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -332,7 +332,7 @@
                 <div class="col-md-12">
                     <div class="form-group">
                         <label>Student:</label>
-                        <select name="ddl_stud[]" id="ddl_stud" data-style="btn-primary" class="form-control input-sm custom-select" multiple>
+                        <select name="ddl_stud[]" id="ddl_stud" data-style="btn-primary" class="form-control input-bg custom-select" size = "10" multiple>
                             <option selected disabled>-- Select Student --</option>
                             <?php
                                 $q = mysqli_query($con,"SELECT * from tblstudent order by lname, fname");

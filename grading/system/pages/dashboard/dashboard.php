@@ -104,8 +104,9 @@
                                 
                                 <div class="col-md-3 col-sm-6 col-xs-12"><br>
                                   <div class="info-box">
+                                    
                                     <a href="../student/student.php"><span class="info-box-icon bg-aqua"><i class="fa fa-user"></i></span></a>
-
+                                    
                                     <div class="info-box-content">
                                       <span class="info-box-text">Total Students</span>
                                       <span class="info-box-number">
@@ -123,8 +124,9 @@
 
                                 <div class="col-md-3 col-sm-6 col-xs-12"><br>
                                   <div class="info-box">
+                                    
                                     <a href="../teacher/teacher.php"><span class="info-box-icon bg-aqua"><i class="fa fa-users"></i></span></a>
-
+                                    
                                     <div class="info-box-content">
                                       <span class="info-box-text">Total Faculty</span>
                                       <span class="info-box-number">
@@ -142,7 +144,9 @@
 
                                 <div class="col-md-3 col-sm-6 col-xs-12"><br>
                                   <div class="info-box">
+                                    
                                     <a href="../subject/subject.php"><span class="info-box-icon bg-aqua"><i class="fa fa-file"></i></span></a>
+                                  
 
                                     <div class="info-box-content">
                                       <span class="info-box-text">Total Subjects</span>
@@ -161,8 +165,9 @@
 
                                 <div class="col-md-3 col-sm-6 col-xs-12"><br>
                                   <div class="info-box">
+                                    
                                     <a href="../class/class.php"><span class="info-box-icon bg-aqua"><i class="fa fa-file"></i></span></a>
-
+                              
                                     <div class="info-box-content">
                                       <span class="info-box-text">Total Class</span>
                                       <span class="info-box-number">
