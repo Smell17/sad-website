@@ -89,9 +89,7 @@
                                 </a>
                             </li>
                             <li>
-                                 <a href="../aboutus.php">
-                                    <i class="fa fa-question"></i> <span>About Us</span>
-                                </a>
+
                             </li>';
                         }
                         elseif($_SESSION['role'] == "Teacher"){
@@ -100,7 +98,7 @@
                             while($row = mysqli_fetch_array($query)) {
                                 $classid = $row['classid'];
                             }
-                            
+
                             echo '
                             <li>
                                 <a href="../student/student.php">

@@ -91,16 +91,16 @@
                                                                 case 0:
                                                                     $remarks = "";
                                                                     break;
-                                                                case in_array($row['avg'], range(0,78)):
+                                                                case in_array($r['avg'], range(0,78)):
                                                                     $remarks = "NI - Needs Improvement";
                                                                     break;
-                                                                case in_array($row['avg'], range(79,82)):
+                                                                case in_array($r['avg'], range(79,82)):
                                                                     $remarks = "MS - Moderately Satisfactory";
                                                                     break;
-                                                                case in_array($row['avg'], range(83,87)):
+                                                                case in_array($r['avg'], range(83,87)):
                                                                     $remarks = "S - Satisfactory";
                                                                     break;
-                                                                case in_array($row['avg'], range(88,92)):
+                                                                case in_array($r['avg'], range(88,92)):
                                                                     $remarks = "HS - Highly Satisfactory";
                                                                     break;
                                                                 case ($row['avg']>=93):
