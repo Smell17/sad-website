@@ -193,19 +193,19 @@
                       while($row = mysqli_fetch_array($squery))
                       {
                         switch($row['quarter']) {
-                          case "1stquarter":
+                          case "1stQuarter":
                             $Q1_deadline = $row['deadline'];
                             $Q1_isenabled = $row['is_enabled'];
                             break;
-                          case "2ndquarter":
+                          case "2ndQuarter":
                             $Q2_deadline = $row['deadline'];
                             $Q2_isenabled = $row['is_enabled'];
                             break;
-                          case "3rdquarter":
+                          case "3rdQuarter":
                             $Q3_deadline = $row['deadline'];
                             $Q3_isenabled = $row['is_enabled'];
                             break;
-                          case "4thquarter":
+                          case "4thQuarter":
                             $Q4_deadline = $row['deadline'];
                             $Q4_isenabled = $row['is_enabled'];
                             break;
