@@ -12,7 +12,7 @@
         <div class="modal-footer">
             <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">No</button>
             <input type="hidden" name="classid" value="<?php echo $val; ?>">
-            <input type="submit" class="btn btn-primary btn-sm" name="btn_delete_classmanage_subjectteacher" id="btn_delete_classmanage" value="Yes"/>
+            <input type="submit" style ="background-color: #285C2D; color: white;" class="btn btn-primary btn-sm" name="btn_delete_classmanage_subjectteacher" id="btn_delete_classmanage" value="Yes"/>
         </div>
     </div>
   </div>

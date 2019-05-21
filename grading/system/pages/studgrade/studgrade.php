@@ -78,7 +78,7 @@
                                                         <td>'.$row['schoolyear'].'</td>
                                                         <td>'.$row['yearlevel']." - ".$row['classname'].'</td>
                                                         <td>'.$row['subjectname'].'</td>
-                                                        <td style="white-space: nowrap"><a href="../studgrade/studgrademanage.php?subjectteacherid='.$row['id'].'" class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Manage Grades</a></td>
+                                                        <td style="white-space: nowrap"><a href="../studgrade/studgrademanage.php?subjectteacherid='.$row['id'].'" class="btn btn-primary btn-sm" style ="background-color: #285C2D; color: white;"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Manage Grades</a></td>
                                                     </tr>';
                                                 }
                                             ?>

@@ -30,7 +30,7 @@
                                 <div class="box-header">
                                     <div style="padding:10px;">
                                         
-                                        <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addClassModal"><i class="fa fa-plus" aria-hidden="true"></i> Add Class</button>  
+                                        <button class="btn btn-primary btn-sm" style ="background-color: #285C2D; color: white;" data-toggle="modal" data-target="#addClassModal"><i class="fa fa-plus" aria-hidden="true"></i> Add Class</button>  
 
                                         <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModal"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button> 
 
@@ -60,7 +60,7 @@
                                                     <td>'.$row['yearlevel']." - ".$row['classname'].'</td>
                                                     <td>'.$row['schoolyear'].'</td>
                                                     <td>'.$row['tname'].'</td>
-                                                    <td style="white-space: nowrap"><button class="btn btn-primary btn-sm" data-target="#editModal'.$row['cid'].'" data-toggle="modal"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button> <a href="../class/class-manage.php?classid='.$row['cid'].'" class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Manage</a></td>
+                                                    <td style="white-space: nowrap"><button class="btn btn-primary btn-sm" style ="background-color: #285C2D; color: white;" data-target="#editModal'.$row['cid'].'" data-toggle="modal"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button> <a href="../class/class-manage.php?classid='.$row['cid'].'" class="btn btn-primary btn-sm" style ="background-color: #285C2D; color: white;"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Manage</a></td>
                                                 </tr>
                                                 ';
                                                 

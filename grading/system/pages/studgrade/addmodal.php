@@ -4,7 +4,7 @@
   <div class="modal-dialog modal-sm" style="width:300px !important;">
     <div class="modal-content">
         <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <button type="button" class="close" style ="background-color: #285C2D; color: white;" data-dismiss="modal" aria-hidden="true">&times;</button>
             <h4 class="modal-title">Add Student Grade</h4>
         </div>
         <div class="modal-body">
@@ -63,7 +63,7 @@
         </div>
         <div class="modal-footer">
             <input type="button" class="btn btn-default btn-sm" data-dismiss="modal" value="Cancel"/>
-            <input type="submit" class="btn btn-primary btn-sm" id="btn_add_studgrade" name="btn_add_studgrade" value="Add Student Grade"/>
+            <input type="submit" style ="background-color: #285C2D; color: white;" class="btn btn-primary btn-sm" id="btn_add_studgrade" name="btn_add_studgrade" value="Add Student Grade"/>
         </div>
     </div>
   </div>

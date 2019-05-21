@@ -11,7 +11,7 @@
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">No</button>
-            <input type="submit" class="btn btn-primary btn-sm" name="btn_delete" id="btn_delete" value="Yes"/>
+            <input type="submit" style ="background-color: #285C2D; color: white;" class="btn btn-primary btn-sm" name="btn_delete" id="btn_delete" value="Yes"/>
         </div>
     </div>
   </div>

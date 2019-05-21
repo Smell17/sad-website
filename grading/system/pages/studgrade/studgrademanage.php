@@ -54,7 +54,7 @@
                                 <div class="box-header">
                                     <div style="padding:10px;">
                                         
-                                        <button class="btn btn-primary btn-sm" onclick="disableInputs();"><i class="fa fa-plus" aria-hidden="true"></i> Edit </button>  
+                                        <button class="btn btn-primary btn-sm" style ="background-color: #285C2D; color: white;" onclick="disableInputs();"><i class="fa fa-plus" aria-hidden="true"></i> Edit </button>  
                                     </div>                                
                                 </div><!-- /.box-header -->
                                 <div class="box-body table-responsive">
@@ -121,7 +121,7 @@
                                             ?>
                                         </tbody>
                                     </table>
-                                    <input type="submit" class="btn btn-primary btn-sm" name="btn_add_studgrade" value="Save"/>
+                                    <input type="submit" style ="background-color: #285C2D; color: white;" class="btn btn-primary btn-sm" name="btn_add_studgrade" value="Save"/>
 
                                     </form>
                                 </div><!-- /.box-body -->

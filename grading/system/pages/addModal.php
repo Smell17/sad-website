@@ -4,7 +4,7 @@
   <div class="modal-dialog modal-sm" style="width:300px !important;">
     <div class="modal-content">
         <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <button type="button" class="close" style ="background-color: #285C2D; color: white;" data-dismiss="modal" aria-hidden="true">&times;</button>
             <h4 class="modal-title">Add School Year</h4>
         </div>
         <div class="modal-body">
@@ -21,7 +21,7 @@
         </div>
         <div class="modal-footer">
             <input type="button" class="btn btn-default btn-sm" data-dismiss="modal" value="Cancel"/>
-            <input type="submit" class="btn btn-primary btn-sm" id="btn_add" name="btn_add_sy" value="Add School Year"/>
+            <input type="submit" style ="background-color: #285C2D; color: white;" class="btn btn-primary btn-sm" id="btn_add" name="btn_add_sy" value="Add School Year"/>
         </div>
     </div>
   </div>
@@ -36,7 +36,7 @@
   <div class="modal-dialog modal-sm" style="width:300px !important;">
     <div class="modal-content">
         <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <button type="button" style ="background-color: #285C2D; color: white;" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             <h4 class="modal-title">Add Grade Level</h4>
         </div>
         <div class="modal-body">
@@ -64,7 +64,7 @@
         </div>
         <div class="modal-footer">
             <input type="button" class="btn btn-default btn-sm" data-dismiss="modal" value="Cancel"/>
-            <input type="submit" class="btn btn-primary btn-sm" id="btn_add" name="btn_add_yl" value="Add Grade Level"/>
+            <input type="submit" style ="background-color: #285C2D; color: white;" class="btn btn-primary btn-sm" id="btn_add" name="btn_add_yl" value="Add Grade Level"/>
         </div>
     </div>
   </div>
@@ -79,7 +79,7 @@
   <div class="modal-dialog modal-sm" style="width:300px !important;">
     <div class="modal-content">
         <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <button type="button" class="close" style ="background-color: #285C2D; color: white;" data-dismiss="modal" aria-hidden="true">&times;</button>
             <h4 class="modal-title">Add Subject</h4>
         </div>
         <div class="modal-body">
@@ -114,7 +114,7 @@
         </div>
         <div class="modal-footer">
             <input type="button" class="btn btn-default btn-sm" data-dismiss="modal" value="Cancel"/>
-            <input type="submit" class="btn btn-primary btn-sm" id="btn_add" name="btn_add_subj" value="Add Grade Level"/>
+            <input type="submit" style ="background-color: #285C2D; color: white;" class="btn btn-primary btn-sm" id="btn_add" name="btn_add_subj" value="Add Grade Level"/>
         </div>
     </div>
   </div>
@@ -129,7 +129,7 @@
   <div class="modal-dialog modal-sm" style="width:300px !important;">
     <div class="modal-content">
         <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <button type="button" class="close" style ="background-color: #285C2D; color: white;" data-dismiss="modal" aria-hidden="true">&times;</button>
             <h4 class="modal-title">Add Student</h4>
         </div>
         <div class="modal-body">
@@ -190,7 +190,7 @@
         </div>
         <div class="modal-footer">
             <input type="button" class="btn btn-default btn-sm" data-dismiss="modal" value="Cancel"/>
-            <input type="submit" class="btn btn-primary btn-sm" id="btn_add_stud" name="btn_add_stud" value="Add Student"/>
+            <input type="submit" style ="background-color: #285C2D; color: white;" class="btn btn-primary btn-sm" id="btn_add_stud" name="btn_add_stud" value="Add Student"/>
         </div>
     </div>
   </div>
@@ -205,7 +205,7 @@
   <div class="modal-dialog modal-sm" style="width:300px !important;">
     <div class="modal-content">
         <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <button type="button" class="close" style ="background-color: #285C2D; color: white;" data-dismiss="modal" aria-hidden="true">&times;</button>
             <h4 class="modal-title">Add Class</h4>
         </div>
         <div class="modal-body">
@@ -246,7 +246,7 @@
         </div>
         <div class="modal-footer">
             <input type="button" class="btn btn-default btn-sm" data-dismiss="modal" value="Cancel"/>
-            <input type="submit" class="btn btn-primary btn-sm" id="btn_add_class" name="btn_add_class" value="Add Class"/>
+            <input type="submit" style ="background-color: #285C2D; color: white;" class="btn btn-primary btn-sm" id="btn_add_class" name="btn_add_class" value="Add Class"/>
         </div>
     </div>
   </div>
@@ -261,7 +261,7 @@
   <div class="modal-dialog modal-sm" style="width:300px !important;">
     <div class="modal-content">
         <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <button type="button" class="close" style ="background-color: #285C2D; color: white;" data-dismiss="modal" aria-hidden="true">&times;</button>
             <h4 class="modal-title">Add Student Class</h4>
         </div>
         <div class="modal-body">
@@ -310,7 +310,7 @@
         </div>
         <div class="modal-footer">
             <input type="button" class="btn btn-default btn-sm" data-dismiss="modal" value="Cancel"/>
-            <input type="submit" class="btn btn-primary btn-sm" id="btn_add_studclass" name="btn_add_studclass" value="Add Student Class"/>
+            <input type="submit" style ="background-color: #285C2D; color: white;" class="btn btn-primary btn-sm" id="btn_add_studclass" name="btn_add_studclass" value="Add Student Class"/>
         </div>
     </div>
   </div>
@@ -323,7 +323,7 @@
   <div class="modal-dialog modal-bg" style="width:300px !important;">
     <div class="modal-content">
         <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <button type="button" class="close" style ="background-color: #285C2D; color: white;" data-dismiss="modal" aria-hidden="true">&times;</button>
             <h4 class="modal-title">Add Student to Advisory Class</h4>
         </div>
         <div class="modal-body">
@@ -353,7 +353,7 @@
         </div>
         <div class="modal-footer">
             <input type="button" class="btn btn-default btn-sm" data-dismiss="modal" value="Cancel"/>
-            <input type="submit" class="btn btn-primary btn-sm" id="btn_add_studclass" name="btn_add_studadvisory" value="Add Student to Advisory Class"/>
+            <input type="submit" style ="background-color: #285C2D; color: white;" class="btn btn-primary btn-sm" id="btn_add_studclass" name="btn_add_studadvisory" value="Add Student to Advisory Class"/>
         </div>
     </div>
   </div>
@@ -369,7 +369,7 @@
   <div class="modal-dialog modal-sm" style="width:300px !important;">
     <div class="modal-content">
         <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <button type="button" class="close" style ="background-color: #285C2D; color: white;" data-dismiss="modal" aria-hidden="true">&times;</button>
             <h4 class="modal-title">Add Teacher</h4>
         </div>
         <div class="modal-body">
@@ -410,7 +410,7 @@
         </div>
         <div class="modal-footer">
             <input type="button" class="btn btn-default btn-sm" data-dismiss="modal" value="Cancel"/>
-            <input type="submit" class="btn btn-primary btn-sm" id="btn_add_teacher" name="btn_add_teacher" value="Add Teacher"/>
+            <input type="submit" style ="background-color: #285C2D; color: white;" class="btn btn-primary btn-sm" id="btn_add_teacher" name="btn_add_teacher" value="Add Teacher"/>
         </div>
     </div>
   </div>
@@ -425,7 +425,7 @@
   <div class="modal-dialog modal-sm" style="width:300px !important;">
     <div class="modal-content">
         <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <button type="button" class="close" style ="background-color: #285C2D; color: white;" data-dismiss="modal" aria-hidden="true">&times;</button>
             <h4 class="modal-title">Add Advisory</h4>
         </div>
         <div class="modal-body">
@@ -475,7 +475,7 @@
         </div>
         <div class="modal-footer">
             <input type="button" class="btn btn-default btn-sm" data-dismiss="modal" value="Cancel"/>
-            <input type="submit" class="btn btn-primary btn-sm" id="btn_add_adv" name="btn_add_adv" value="Add Advisory"/>
+            <input type="submit" style ="background-color: #285C2D; color: white;" class="btn btn-primary btn-sm" id="btn_add_adv" name="btn_add_adv" value="Add Advisory"/>
         </div>
     </div>
   </div>
@@ -492,7 +492,7 @@
   <div class="modal-dialog modal-sm" style="width:300px !important;">
     <div class="modal-content">
         <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <button type="button" class="close" style ="background-color: #285C2D; color: white;" data-dismiss="modal" aria-hidden="true">&times;</button>
             <h4 class="modal-title">Add Student Grade</h4>
         </div>
         <div class="modal-body">
@@ -535,7 +535,7 @@
         </div>
         <div class="modal-footer">
             <input type="button" class="btn btn-default btn-sm" data-dismiss="modal" value="Cancel"/>
-            <input type="submit" class="btn btn-primary btn-sm" id="btn_add_adv" name="btn_add_adv" value="Add Advisory"/>
+            <input type="submit" style ="background-color: #285C2D; color: white;" class="btn btn-primary btn-sm" id="btn_add_adv" name="btn_add_adv" value="Add Advisory"/>
         </div>
     </div>
   </div>

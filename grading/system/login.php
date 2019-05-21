@@ -34,7 +34,7 @@ session_start();
                   <label for="txt_password">Password</label>
                   <input type="password" class="form-control" style="border-radius:0px" name="txt_password" placeholder="Enter Password">
                 </div>
-                <center><button type="submit" class="btn btn-sm btn-primary" style="text-align: center" name="btn_login">Log in</button></center>
+                <center><button type="submit" class="btn btn-sm btn-primary" style="text-align: center; background-color: #285C2D; color: white;" name="btn_login">Log in</button></center>
                 <br>
               </form>
             </div>
@@ -45,7 +45,7 @@ session_start();
 
 <div style="padding:10px;">
 
-     <center><button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addTeacherModal"><i class="fa fa-plus" aria-hidden="true"></i>Register as Teacher</button></center>                                     
+     <center><button class="btn btn-primary btn-sm" style ="background-color: #285C2D; color: white;" data-toggle="modal" data-target="#addTeacherModal"><i class="fa fa-plus" aria-hidden="true"></i>Register as Teacher</button></center>                                     
 
 <div id="addTeacherModal" class="modal fade">
 <form method="post">
@@ -93,7 +93,7 @@ session_start();
         </div>
         <div class="modal-footer">
             <input type="button" class="btn btn-default btn-sm" data-dismiss="modal" value="Cancel"/>
-            <input type="submit" class="btn btn-primary btn-sm" id="btn_add_teacher" name="btn_add_teacher" value="Register"/>
+            <input type="submit" style ="background-color: #285C2D; color: white;" class="btn btn-primary btn-sm" id="btn_add_teacher" name="btn_add_teacher" value="Register"/>
         </div>
     </div>
   </div>
@@ -105,7 +105,7 @@ session_start();
 
 <div style="padding:10px;">
                                            
-<center><button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addRealAdmin"><i class="fa fa-plus" aria-hidden="true"></i>Register as Admin</button></center>
+<center><button class="btn btn-primary btn-sm" style ="background-color: #285C2D; color: white;" data-toggle="modal" data-target="#addRealAdmin"><i class="fa fa-plus" aria-hidden="true"></i>Register as Admin</button></center>
 
 <div id="addRealAdmin" class="modal fade">
 <form method="post">
@@ -141,7 +141,7 @@ session_start();
         </div>
         <div class="modal-footer">
             <input type="button" class="btn btn-default btn-sm" data-dismiss="modal" value="Cancel"/>
-            <input type="submit" class="btn btn-primary btn-sm" id="btn_add_realadmin" name="btn_add_realadmin" value="Register"/>
+            <input type="submit" style ="background-color: #285C2D; color: white;" class="btn btn-primary btn-sm" id="btn_add_realadmin" name="btn_add_realadmin" value="Register"/>
         </div>
     </div>
   </div>
@@ -152,7 +152,7 @@ session_start();
 
 <div style="padding:10px;">
                                            
-                 <center> <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addCAModal"><i class="fa fa-plus" aria-hidden="true"></i>Register as Class Adviser</button> </center>
+                 <center> <button class="btn btn-primary btn-sm" style ="background-color: #285C2D; color: white;" data-toggle="modal" data-target="#addCAModal"><i class="fa fa-plus" aria-hidden="true"></i>Register as Class Adviser</button> </center>
 
 <div id="addCAModal" class="modal fade">
 <form method="post">
@@ -196,7 +196,7 @@ session_start();
         </div>
         <div class="modal-footer">
             <input type="button" class="btn btn-default btn-sm" data-dismiss="modal" value="Cancel"/>
-            <input type="submit" class="btn btn-primary btn-sm" id="btn_add_ca" name="btn_add_ca" value="Register"/>
+            <input type="submit" style ="background-color: #285C2D; color: white;" class="btn btn-primary btn-sm" id="btn_add_ca" name="btn_add_ca" value="Register"/>
         </div>
     </div>
   </div>

@@ -60,7 +60,7 @@
 
                                     <div style="padding:10px;">
                                         <h4>Student List</h4>
-                                        <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addStudentAdvisoryModal"><i class="fa fa-plus" aria-hidden="true"></i> Add Students</button>  
+                                        <button class="btn btn-primary btn-sm" style ="background-color: #285C2D; color: white;" data-toggle="modal" data-target="#addStudentAdvisoryModal"><i class="fa fa-plus" aria-hidden="true"></i> Add Students</button>  
 
                                         <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModal"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button> 
 
@@ -138,7 +138,7 @@
                                                         <td><input type="checkbox" name="chk_delete_subjectteacher[]" class="chk_delete chk_delete_subjectteacher" value="'.$row['subjectteacherid'].'" /></td>
                                                         <td>'.$row['subjectname'].'</td>
                                                         <td>'.$row['tname'].'</td>
-                                                        <td style="white-space: nowrap"><button class="btn btn-primary btn-sm" data-target="#editModal'.$row['subjectid'].'" data-toggle="modal"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></td>
+                                                        <td style="white-space: nowrap"><button class="btn btn-primary btn-sm" style ="background-color: #285C2D; color: white;" data-target="#editModal'.$row['subjectid'].'" data-toggle="modal"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></td>
                                                     </tr>
                                                     ';
                                                 }

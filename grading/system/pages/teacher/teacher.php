@@ -30,7 +30,7 @@
                                 <div class="box-header">
                                     <div style="padding:10px;">
                                         
-                                        <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addTeacherModal"><i class="fa fa-plus" aria-hidden="true"></i> Add Teacher</button>  
+                                        <button class="btn btn-primary btn-sm" style ="background-color: #285C2D; color: white;" data-toggle="modal" data-target="#addTeacherModal"><i class="fa fa-plus" aria-hidden="true"></i> Add Teacher</button>  
 
                                         <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModal"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button> 
 
@@ -62,7 +62,7 @@
                                                     <td>'.$row['contact'].'</td>
                                                     <td>'.$row['address'].'</td>
                                                     <td>'.$row['username'].'</td>
-                                                    <td><button class="btn btn-primary btn-sm" data-target="#editModal'.$row['id'].'" data-toggle="modal"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></td>
+                                                    <td><button class="btn btn-primary btn-sm" style ="background-color: #285C2D; color: white;" data-target="#editModal'.$row['id'].'" data-toggle="modal"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></td>
                                                 </tr>
                                                 ';
                                                 
